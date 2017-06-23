@@ -34,19 +34,19 @@ permalink: /portfolio/tictactoe
 
 	<div class="game-description">
 		<h1>Tic Tac Toe</h1>
-		<ul>
-			<li>Built with vanilla JavaScript and OOP principles</li>
-			<li>The player with the X symbol will always go first</li>
-			<li>Check out the git repository <a href="https://github.com/amfische/tictactoe" target="_blank">here</a></li>
+		<ul class="fa-ul">
+			<li><i class="fa-li fa fa-angle-right"></i>Built with vanilla JavaScript and OOP principles</li>
+			<li><i class="fa-li fa fa-angle-right"></i>The player with the X symbol will always go first</li>
+			<li><i class="fa-li fa fa-angle-right"></i>Check out the git repository <a href="https://github.com/amfische/tictactoe" target="_blank">here</a></li>
 		</ul>
 		<h1>Minimax Algorithm</h1>
-		<ul>
-			<li>The computer's A.I. is designed to be unbeatable; at best a player will tie.</li>
-			<li>The A.I. uses the minimax algorithm and is a common tool in zero-sum games like chess and checkers.</li>
-			<li>The algorithm works by playing out a separate game for each available move and assigning point values for each move. Based on these values the computer will make it's decision</li>
-			<li>The algorithm is recursive because each available move causes another possible game state where another decision must be made. The algorithm is therefore called again, and again until an end game state is reached.</li>
-			<li>Surprisingly, there are around 255,000 possible game states in Tic Tac Toe.</li>
-			<li>Click <a href="http://neverstopbuilding.com/minimax" target="_blank">here</a> to learn more.</li>
+		<ul class="fa-ul">
+			<li><i class="fa-li fa fa-angle-right"></i>The computer's A.I. is designed to be unbeatable; at best a player will tie.</li>
+			<li><i class="fa-li fa fa-angle-right"></i>The A.I. uses the minimax algorithm and is a common tool in zero-sum games like chess and checkers.</li>
+			<li><i class="fa-li fa fa-angle-right"></i>The algorithm works by evaluating all available moves and assigning a point value to each possibility. Based on these values the A.I. will make it's decision.</li>
+			<li><i class="fa-li fa fa-angle-right"></i>An open square's point value is determined by calculating all possible ways the game could end if that square were taken. This quickly turns into thousands of calculations that must be made before a square's point value is known. During this process the algorithm is repeatedly called over and over again, and is therefore a recursive algorithm.</li>
+			<li><i class="fa-li fa fa-angle-right"></i>Surprisingly, there are around 255,000 possible game states in Tic Tac Toe.</li>
+			<li><i class="fa-li fa fa-angle-right"></i>Click <a href="http://neverstopbuilding.com/minimax" target="_blank">here</a> to learn more.</li>
 		</ul>
 	</div>
 </div>

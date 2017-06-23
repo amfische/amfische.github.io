@@ -9,25 +9,27 @@
 ****************************/
 
 .main-content {
-	height: 100vh;
-	width: 100vw;
+	height: calc(100vh - 55px); /* 55px is about size of hamburger-menu box*/
+	width: 100%;
 	transition: margin-left .5s;
 
 	button.toggle-nav {
 		background: none;
 		border: none;
 		width: 30px;
-		float: right;
 		margin: 15px;
 		cursor: pointer;
+		position: absolute;
+		top: 0;
+		right: 0;
 	}
 
 }
 
 .container {
 	width: 90%;
-	min-height: 100%;
-	margin: auto;
+	height: 100%;
+	margin: 55px auto 0px auto;
 }
 
 @media (max-width: 1450px) {
@@ -125,18 +127,6 @@ footer {
 
 }
 
-/* so navigation looks better on medium sized screens */
-
-@media (min-width: 992px) and (max-width: 1450px) {
-	nav.navbar-side {
-
-	}
-
-	div.container {
-
-	}
-}
-
 /****************************
 	HOME PAGE
 ****************************/
@@ -180,150 +170,7 @@ div.headline-text {
 }
 
 
-/****************************
-		RESUME PAGE
-****************************/
 
-#resume {
-	display: flex;
-	justify-content: space-around;
-}
-
-#resume div.heading,
-#resume div.contact-info {
-	width: 100%;
-	height: 90px;
-	margin: 45px 0px;
-	color: #158479;
-	text-align: center;
-
-}
-
-#resume div.heading h1 {
-	font-size: 3em;
-	margin: 0px;
-}
-
-#resume div.heading h2 {
-	font-size: 1.5em;
-	margin: 0px;
-}
-
-#resume div.contact-info h2 {
-	font-size: 1.5em;
-	margin: 0px;
-}
-
-#resume section.col-one,
-#resume section.col-two {
-	width: 40%;
-}
-
-div.resume-block h2 {
-	border-bottom: 2px solid #000;
-	font-size: 1.5em;
-	color: #158479;
-}
-
-div.resume-block ol {
-	list-style: none;
-	padding-left: 20px;
-}
-
-div.resume-block ul {
-	list-style: disc;
-}
-
-div.resume-block ul > li {
-	padding: 5px;
-	letter-spacing: 2px;
-}
-
-div.resume-block h3 {
-	margin-bottom: 5px;
-	display: flex;
-	justify-content: space-between;
-}
-
-div.resume-block h4 {
-	margin-top: 0px;
-}
-
-/* SKILLS STAR RATINGS */
-
-div.skills-list {
-	display: flex;
-	justify-content: space-around;
-	margin: 40px 0px;
-}
-
-div.skills-list-col-1,
-div.skills-list-col-2 {
-	width: 45%;
-}
-
-div.skills-list-item {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 15px;
-}
-
-div.skills-list-item h6 {
-	margin: 0px;
-	font-size: 15px;
-}
-
-.fa-star {
-	color: #158479;
-}
-
-/* skills list star ratings will start to wrap around 1300px so switch to 1 column*/
-@media (min-width: 993px) and (max-width: 1300px) {
-	
-	div.skills-list {
-		flex-wrap: wrap;
-	}
-
-	div.skills-list-col-1,
-	div.skills-list-col-2 {
-		width: 70%;
-	}
-}
-
-/* format resume into single column for small devices */
-
-div.mobile.contact-info {
-	display: none;
-}
-
-@media (max-width: 992px) {
-	
-	#resume {
-		display: block;
-	}
-
-	div.contact-info {
-		display: none;
-	}
-
-	#resume div.mobile-heading {
-		display: flex;
-		justify-content: space-around;
-	}
-
-	#resume div.heading,
-	#resume div.mobile.contact-info {
-		width: 45%;
-		display: inline-block;
-	}
-
-	#resume section.col-one,
-	#resume section.col-two {
-		width: 90%;
-		margin: auto;
-	}
-
-}
 
 /****************************
 		PORTFOLIO PAGE
@@ -389,57 +236,3 @@ a.img-hover p {
 	}
 }
 
-/****************************
-		CONTACT PAGE
-****************************/
-
-#contact {
-	display: flex;
-}
-
-div.contact-group {
-	width: 60%;
-	margin: auto;
-}
-
-div.form-group {
-	margin: 15px;
-}
-
-div.form-group > * {
-	display: block;
-	width: 95%;
-	padding: 10px;
-	font-size: 1.5em;
-}
-
-div.form-group > label {
-	font-family: 'Patrick Hand', cursive;
-	font-weight: bold;
-}
-
-div.form-group > input,
-div.form-group > textarea {
-	letter-spacing: 2px;
-}
-
-div.form-group > button {
-	width: 25%;
-	font-family: 'Patrick Hand', cursive;
-	letter-spacing: 5px;
-    border-radius: 5px;
-    border-color: transparent;
-    font-weight: bold;
-    background-color: #158479;
-    cursor: pointer;
-}
-
-div.form-group > button:hover {
-	background-color: #72CBDB;
-}
-
-@media (max-width: 992px) {
-	div.contact-group {
-		width: 100%;
-	}
-}
