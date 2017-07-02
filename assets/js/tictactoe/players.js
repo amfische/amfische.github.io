@@ -36,6 +36,7 @@ Player.prototype.move_user = function() {
 
 	$(".board-space").on('click', function(event) {
 		event.preventDefault();
+
 		if (!successfulMove && this.innerHTML === "") {
 			var status = that.board.update(this.id, that.marker);
 			successfulMove = true;

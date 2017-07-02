@@ -41,11 +41,13 @@ Board.prototype.update = function(number, marker) {
 	var spacesObject = document.getElementsByClassName("board-space");
 	var x = this.spaces[number].XCoordinate;
 	var y = this.spaces[number].YCoordinate;
+	var color = marker === 'X' ? '#4666FF' : '#C2FF46';
 
 	//update board interface, HTML
 	for (var i = 0; i < spacesObject.length; i += 1) {
 		if (spacesObject[i].className.indexOf(x + "-" + y) !== -1) {
 			spacesObject[i].innerHTML = marker;
+			spacesObject[i].style.color = color;
 		}
 	}
 

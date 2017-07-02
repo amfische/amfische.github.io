@@ -2,44 +2,35 @@
 <script src="https://use.fontawesome.com/d3c9e0b791.js"></script>
 <script src="/assets/js/app.js"></script>
 
-<script type="text/javascript" src="assets/js/tictactoe/board.js"></script>
+<script type="text/javascript" src="/assets/js/tictactoe/board.js"></script>
 <script type="text/javascript" src="/assets/js/tictactoe/boardspace.js"></script>
 <script type="text/javascript" src="/assets/js/tictactoe/players.js"></script>
 
 <script>
-	var b = new Board();
-	var $single_player = document.getElementById('single');
-	var $multiplayer = document.getElementById('multi');
-	var $user = document.getElementById('user');
-	var $computer = document.getElementById('computer');
-	var $p1 = document.getElementById('p1');
-	var $p2 = document.getElementById('p2');
+	var $board = new Board();
 	var p1, p2;
+	var x = $('.x')[0];
+	var o = $('.o')[0];
 	$(document).ready(function() {
-		$("#start").click(function() {
-			if ($single_player.checked === false && $multiplayer.checked === false) {
-				alert("Please choose Single Player or Multiplayer");
+		console.log($board);
+		document.addEventListener('click', function() {
+			console.log($board.spaces.length);
+		});
+		$('.start').click(function() {
+			if (!x.checked && !o.checked) {
+				alert('Please choose a symbol');
+			} else if (x.checked) {
+				p1 = new Player($board, 'X', false);
+				p2 = new Player($board, 'O', true);
+				$board.reset();
+				$board.play(p1, p2);
+			} else {
+				p1 = new Player($board, 'O', false);
+				p2 = new Player($board, 'X', true);
+				$board.reset();
+				$board.play(p1, p2);
 			}
-			if ($single_player.checked === true) {
-				if ($user.selectedIndex === $computer.selectedIndex) {
-					alert("Both players cannot use the same symbol");
-				} else {
-					p1 = new Player(b, $user.options[$user.selectedIndex].text, false);
-					p2 = new Player(b, $computer.options[$computer.selectedIndex].text, true);
-					b.reset();
-					b.play(p1, p2);
-				}
-			}
-			if ($multiplayer.checked === true) {
-				if ($p1.selectedIndex === $p2.selectedIndex) {
-					alert("Both players cannot use the same symbol");
-				} else {
-					p1 = new Player(b, $p1.options[$p1.selectedIndex].text, false);
-					p2 = new Player(b, $p2.options[$p2.selectedIndex].text, false);
-					b.reset();
-					b.play(p1, p2);
-				}
-			}
+			
 		});
 	});
 </script>
