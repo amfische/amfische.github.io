@@ -4,13 +4,12 @@ layout: main
 
 <div class="container" id="home">
 
-	<div class="headline-title">
-		<h1>Aaron Fischer</h1>				
+	<div class="headline">
+		<h1>Aaron Fischer</h1>
+		<div class="display-line"></div>
+		<i class="fa fa-code"></i>				
 		<h2>Web Developer</h2>
-	</div>
-<!-- 	<div class="headline-text">
-		<p>A problem solver and life long learner with a soft spot for all things web development related. I get excited about programming, the future of technology, travel, sports and pho noodles!</p>
-	</div>	 -->	
+	</div>	
 
 </div>
 
