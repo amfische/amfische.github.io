@@ -10,10 +10,10 @@ var red_sound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3
 var yellow_sound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3');
 var blue_sound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3');
 
-var mistake = new Audio('sounds/buzz.mp3');
-var win = new Audio('sounds/ping.mp3');
+var mistake = new Audio('/assets/sounds/buzz.mp3');
+var win = new Audio('/assets/sounds/ping.mp3');
 
-var $count_element = document.getElementById('count').childNodes[1];
+var $count_element = document.getElementsByClassName('level-count').childNodes[1];
 
 var ui = {
 	count: "00"

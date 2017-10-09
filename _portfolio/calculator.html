@@ -1,0 +1,18 @@
+---
+title: calculator
+collections: portfolio
+---
+
+<div class="container" id="calculator">
+	<div class="display">
+		<input type="text" v-model="display" disabled="disabled">
+		<div class="buttons-grid">
+			<button v-for="btn in buttons" @click="btnAction" v-text="btn"></button>
+		</div>
+	</div>
+	<div class="description">
+		<h1>Vue.js Calculator</h1>
+	</div>
+</div>
+
+{% include calculator-footer.html %}

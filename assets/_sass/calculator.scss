@@ -1,0 +1,27 @@
+.container#calculator {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.display {
+		width: 35vw;
+		height: 55vh;
+	}
+
+	input[type=text] {
+		box-sizing: border-box;
+		width: 100%;
+		margin: 1em auto;
+		text-align: right;
+		padding: 15px;
+		font-size: 1.5em;
+	}
+
+	.buttons-grid {
+		width: 100%;
+		height: 100%;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(5, 1fr);
+		grid-gap: 1em;
+	}
+}

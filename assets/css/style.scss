@@ -4,6 +4,7 @@
 @import 'simon';
 @import 'tictactoe';
 @import 'circle';
+@import 'calculator';
 
 /****************************
 		GENERAL STYLES
@@ -30,7 +31,7 @@
 .container {
 	width: 90%;
 	height: 100%;
-	margin: 55px auto 0px auto;
+	margin: 15px auto 0px auto;
 }
 
 .clearfix:after {
@@ -190,11 +191,11 @@ footer {
 
 	h1 {
 		border-bottom: 1px solid black;
-	    font-family: 'Josefin Slab', serif;
+	   font-family: 'Josefin Slab', serif;
 	}
 
 	.col-about {
-		margin-bottom: 50px;
+		margin-bottom: 15px;
 
 		.flex-container {
 			margin: 15px auto;
