@@ -2,9 +2,16 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	font-family: 'Boogaloo', cursive;
 	.display {
 		width: 35vw;
-		height: 55vh;
+		padding: 15px 15px 30px;
+		background-color: #6ce82f;
+		border: 3px solid black;
+		border-radius: 5px;
+	}
+	.description {
+		width: 40vw;
 	}
 
 	input[type=text] {
@@ -14,6 +21,11 @@
 		text-align: right;
 		padding: 15px;
 		font-size: 1.5em;
+		border: 1px solid #000;
+		&.error {
+			text-align: center;
+			color: red;
+		}
 	}
 
 	.buttons-grid {
@@ -21,7 +33,36 @@
 		height: 100%;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat(5, 1fr);
+		grid-template-rows: repeat(5, 3.5em);
 		grid-gap: 1em;
+
+		button {
+			background-color: #c6c6c6;
+			border: 1px solid #000;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 2em;
+			&:hover {
+				background-color: #e1d3c1;
+				border: 1px solid black;
+			}
+		}
 	}
+
+	h1 {
+		font-size: 3em;
+		font-weight: 400;
+		font-family: 'Jura', sans-serif;
+	}
+
+	ul {
+    font-family: 'Jura', sans-serif;
+		list-style: none;
+		font-size: 18px;
+		li {
+			padding: 10px 5px;
+		}
+	}
+
+
 }
