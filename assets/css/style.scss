@@ -26,14 +26,13 @@ button.toggle-nav {
 	/* 55px is about size of hamburger-menu box*/
 	display: flex;
 	align-items: center;
-	height: 100vh;
-	width: 100vw;
+	min-height: 100vh;
 	transition: margin-left .5s;
 }
 
 .container {
 	width: 90%;
-	margin: 0 auto;
+	margin: auto;
 }
 
 .clearfix:after {
@@ -182,6 +181,10 @@ footer {
 
 #about {
 
+	&.container {
+		margin: 100px auto;
+	}
+
 	.c100 {
 		float: none;
 		margin: 25px auto;
@@ -198,7 +201,7 @@ footer {
 	}
 
 	.col-about {
-		margin-bottom: 15px;
+		margin-bottom: 50px;
 
 		.flex-container {
 			margin: 15px auto;
@@ -244,6 +247,9 @@ footer {
 	}
 
 	@media (min-width: 992px) {
+		&.container {
+			margin: 0 auto;
+		}
 		.col-skills .skill-item {
 			width: 25%;
 		}
@@ -251,11 +257,22 @@ footer {
 	}
 
 	@media (min-width: 1200px) {
+		&.container {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			min-height: 75vh;
+		}
 		.flex-container {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 		}
+
+		.col-about {
+			margin-bottom: 15px;
+		}
+
 		.col-about img {
 			max-width: 27%;
 		}
@@ -270,7 +287,7 @@ footer {
 
 	}
 
-	@media (min-width: 1900px) {
+	@media (min-width: 1850px) {
 		.col-about .flex-container {
 			margin: 50px auto;
 		}
