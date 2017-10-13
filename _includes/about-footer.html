@@ -5,7 +5,35 @@
 <script src="/assets/js/app.js"></script>
 
 <script>
-	
+	$(document).ready(function() {
+
+		function animate(e, level) {
+
+			let el = document.getElementsByClassName(e);
+			let width = 1;
+			let id = setInterval(frame, 23);
+
+		  function frame() {
+		    if (width >= level) {
+		      clearInterval(id);
+		    } else {
+		    	width++;
+		      el[0].classList.remove('p' + (width - 1));
+		      el[0].classList.add('p' + width);
+		      el[0].childNodes[1].innerHTML = width + "%";
+		    }
+		  }
+
+		};
+
+		animate('laravel', 45);
+		animate('php', 32);
+		animate('mysql', 33);
+		animate('js', 58);
+		animate('vue', 45);
+		animate('html-css', 75);
+
+	});
 	
 </script>
 
