@@ -195,7 +195,6 @@ footer {
 	}
 
 	h1 {
-		border-bottom: 1px solid black;
 	  font-family: 'Josefin Slab', serif;
 	  margin: 0;
 	}
@@ -264,6 +263,7 @@ footer {
 		.col-about .img-container {
 			width: 28%;
 			margin-bottom: 0;
+			order: 2;
 		}
 
 		.col-about p {
