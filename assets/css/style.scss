@@ -206,11 +206,17 @@ footer {
 		.flex-container {
 			margin: 15px auto;
 		}
+
+		.img-container {
+			width: 100%;
+			margin-bottom: 20px;
+		}
 		
 		img {
+			width: 100%;
+			box-sizing: border-box;
 			display: block;
 			border: 1px solid black;
-			margin: 20px auto;
 		}
 
 		p {
@@ -247,11 +253,21 @@ footer {
 	}
 
 	@media (min-width: 992px) {
-		&.container {
-			margin: 0 auto;
-		}
 		.col-skills .skill-item {
 			width: 25%;
+		}
+		.flex-container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.col-about .img-container {
+			width: 28%;
+			margin-bottom: 0;
+		}
+
+		.col-about p {
+			width: 68%;
 		}
 
 	}
@@ -262,23 +278,12 @@ footer {
 			flex-direction: column;
 			justify-content: space-around;
 			min-height: 75vh;
+			margin: 0 auto;
 		}
-		.flex-container {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
+
 
 		.col-about {
 			margin-bottom: 15px;
-		}
-
-		.col-about img {
-			max-width: 27%;
-		}
-
-		.col-about p {
-			width: 68%;
 		}
 
 		.col-skills .skill-item {
@@ -288,18 +293,16 @@ footer {
 	}
 
 	@media (min-width: 1850px) {
-		.col-about .flex-container {
+		.col-about {
 			margin: 50px auto;
 		}
 
-		.col-about img {
-			height: 315px;
-			width: 390px;
+		.col-about .img-container {
+			
 		}
 
 		.col-about p {
 			font-size: 1.5em;
-			width: 75%;
 		}
 
 		.col-skills .skill-item {
