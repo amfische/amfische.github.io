@@ -63,6 +63,13 @@
 			padding: 10px 5px;
 		}
 	}
+}
 
-
+@media (max-width: 768px) {
+	.container#calculator {
+		display: block;
+		.display, .description {
+			width: auto;
+		}
+	}
 }
