@@ -29,14 +29,6 @@
 	clear: both;
 }
 
-@media (max-width: 786px) {
-	.container {
-		width: 98%;
-		margin: 70px auto;
-		text-align: center;
-	}
-}
-
 /****************************
 				NAVIGATION
 ****************************/
@@ -45,8 +37,13 @@ nav.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 10%;
+  padding: 10px;
   border-bottom: 1px solid #000;
+	box-sizing: border-box;
+	position: sticky;
+	top: 0px;
+	background-color: #fff; 
+	z-index: 100;
 }
 div.social a {
   color: #000;
@@ -61,12 +58,11 @@ ul.links {
 }
 ul.links li {
   display: inline-block;
-  margin: 0 15px;
+  margin: 0 5px;
 }
 ul.links li a {
   text-decoration: none;
   font-size: 12px;
-  letter-spacing: 3px;
   color: #000;
 }
 ul.links li a:hover {
@@ -76,17 +72,12 @@ ul.links li a:focus,
 ul.links li a:active {
   text-decoration: underline;
 }
-@media (max-width: 786px) {
+@media (min-width: 786px) {
   nav.navbar { 
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #fff; 
-    z-index: 100;
+		padding: 15px 10%;
   }
-  ul.links li { margin: 0px 5px; }
-  ul.links li a { letter-spacing: 0px; }
+  ul.links li { margin: 0px 15px; }
+  ul.links li a { letter-spacing: 3px; }
 }
 
 /****************************
@@ -98,7 +89,7 @@ ul.links li a:active {
 	h1 {
 		font-weight: 100;
 		text-align: center;
-		font-size: 6.5em;
+		font-size: 6em;
 		margin: 0px auto 15px;
 		font-family: 'Josefin Slab', serif;
 
@@ -114,7 +105,7 @@ ul.links li a:active {
 	}
 
 	.display-line {
-		width: 57%;
+		width: 90%;
 		margin: auto;
 		border-bottom: 3px solid black;
 	}
@@ -122,10 +113,15 @@ ul.links li a:active {
 	i.fa {
 		background-color: white;
     padding: 5px 15px;
-    margin: 0px 47%;
+    margin: 0px 44%;
     font-size: 2em;
     position: relative;
     bottom: 22px;
+	}
+
+	@media (min-width: 992px) {
+		.display-line { width: 57%; }
+		i.fa { margin: 0px 47%; }
 	}
 }
 
@@ -147,11 +143,11 @@ ul.links li a:active {
 
 	h1 {
 	  font-family: 'Josefin Slab', serif;
-	  margin: 0;
+	  text-align: center;
+	  margin: 75px auto 5px;
 	}
 
 	.col-about {
-		margin-bottom: 50px;
 
 		.img-container {
 			width: 100%;
@@ -178,12 +174,15 @@ ul.links li a:active {
 
 	}
 	.col-skills {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		grid-gap: 1em;
+		margin-bottom: 25px;
 		
 		.skill-item {
-			width: 33%;
 			padding: 0px;
 			margin: 0px;
-			float: left;
 			box-sizing: border-box;
 		}
 
@@ -196,40 +195,50 @@ ul.links li a:active {
 	
 	}
 
-	@media (min-width: 992px) {
-		.col-skills .skill-item {
-			width: 25%;
+	@media (min-width: 768px) {
+		h1 { text-align: left; }
+		.col-about {
+			.img-container {
+				width: 50%;
+				float: left;
+				margin: 15px 15px 15px 0px;
+			}
 		}
+		.col-skills {
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+		}
+
+	}
+
+	@media (min-width: 992px) {
 		.flex-container {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 		}
-		.col-about .img-container {
-			width: 28%;
-			margin-bottom: 0;
-			order: 2;
+		.col-about {
+			.img-container {
+				width: 30%;
+				order: 2;
+				margin: 0;
+				float: none;
+			}
+			p { width: 60%; }
 		}
-
-		.col-about p {
-			width: 68%;
-		}
-
 	}
 
 	@media (min-width: 1200px) {
-		&.container {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
-		}
-
+		h1 { margin: 20px auto 5px; }
 		.col-about {
-			margin-bottom: 15px;
+			.img-container { width: 28%; }
+			p { width: 68%; }
 		}
 
-		.col-skills .skill-item {
-			width: 16.6666666%;
+		.col-skills {
+			grid-template-columns: repeat(6, 1fr);
+			grid-template-rows: initial;
+			margin-bottom: 25px;
 		}
 
 	}
@@ -237,22 +246,16 @@ ul.links li a:active {
 	@media (min-width: 1850px) {
 		.col-about {
 			margin: 50px auto;
+			p { font-size: 1.5em; }
 		}
 
-		.col-about .img-container {
-			
-		}
-
-		.col-about p {
-			font-size: 1.5em;
-		}
-
-		.col-skills .skill-item {
-			padding: 50px;
-		}
-
-		.col-skills .skill-item p {
-			font-size: 2em;
+		.col-skills {
+			.skill-item {
+				padding: 50px;
+			}
+			.skill-item p {
+				font-size: 2em;	
+			}
 		}
 
 		.c100.big {
@@ -276,7 +279,7 @@ ul.links li a:active {
 
 div.project {
 	position: relative;
-	width: 30%;
+	width: 90%;
 	margin: 10px;
 }
 
@@ -321,9 +324,9 @@ a.img-hover p {
 	margin-top: 0px;
 }
 
-@media (max-width: 992px) {
+@media (min-width: 992px) {
 	div.project {
-		width: 80%;
+		width: 30%;
 	}
 }
 

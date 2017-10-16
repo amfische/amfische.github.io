@@ -13,7 +13,8 @@ var blue_sound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp
 var mistake = new Audio('/assets/sounds/buzz.mp3');
 var win = new Audio('/assets/sounds/ping.mp3');
 
-var $count_element = document.getElementsByClassName('level-count').childNodes[1];
+var $count_element = document.getElementsByClassName('level-count');
+var $count_element = $count_element[0];
 
 var ui = {
 	count: "00"
