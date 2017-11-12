@@ -16,7 +16,7 @@ defaults:
 - scope:
     type: portfolio
   values:
-    layout: sidebar
+    layout: navbar
     permalink: "/portfolio/:title"
 
 sass:

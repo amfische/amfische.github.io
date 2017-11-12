@@ -11,16 +11,12 @@
 		GENERAL STYLES
 ****************************/
 
-.main-content {
-	/* 55px is about size of hamburger-menu box*/
+.container {
+	/* 58px is height of navbar */
 	display: flex;
 	align-items: center;
-	min-height: calc(100vh - 48px);
-}
-
-.container {
-	width: 90%;
-	margin: auto;
+	justify-content: center;
+	min-height: calc(100vh - 58px);
 }
 
 .clearfix:after {
@@ -119,15 +115,11 @@ ul.links li a:active {
     bottom: 22px;
 	}
 
-	@media (min-width: 992px) {
-		.display-line { width: 57%; }
-		i.fa { margin: 0px 47%; }
-	}
 }
 
 
 /****************************
-		ABOUT PAGE
+				ABOUT PAGE
 ****************************/
 
 #about {
@@ -141,13 +133,13 @@ ul.links li a:active {
 		font-size: 115px; /*default width 240px*/
 	}
 
-	h1 {
-	  font-family: 'Josefin Slab', serif;
-	  text-align: center;
-	  margin: 75px auto 5px;
-	}
-
-	.col-about {
+	.description {
+		margin: 50px 10px;
+		h1 {
+			font-family: 'Josefin Slab', serif;
+			text-align: center;
+		  margin: 5px auto;
+		}
 
 		.img-container {
 			width: 100%;
@@ -164,7 +156,6 @@ ul.links li a:active {
 		p {
 			font-family: 'Jura', sans-serif;
 			line-height: 2;
-			margin: 0px;
 			font-size: 1.15em;
 		}
 
@@ -173,12 +164,21 @@ ul.links li a:active {
 		}
 
 	}
-	.col-skills {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: repeat(3, 1fr);
-		grid-gap: 1em;
-		margin-bottom: 25px;
+	.skills {
+		margin: 10px;
+		h1 {
+		  font-family: 'Josefin Slab', serif;
+		  text-align: center;
+		  margin: 5px auto;
+		}
+
+		.css-grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+			grid-gap: 1em;
+			margin-bottom: 25px;
+		}
 		
 		.skill-item {
 			padding: 0px;
@@ -196,15 +196,14 @@ ul.links li a:active {
 	}
 
 	@media (min-width: 768px) {
-		h1 { text-align: left; }
-		.col-about {
-			.img-container {
+		.description {
+			img {
 				width: 50%;
 				float: left;
-				margin: 15px 15px 15px 0px;
+				margin: 15px 15px 0px 0px;
 			}
 		}
-		.col-skills {
+		.skills .css-grid {
 			grid-template-columns: repeat(3, 1fr);
 			grid-template-rows: repeat(2, 1fr);
 		}
@@ -212,44 +211,62 @@ ul.links li a:active {
 	}
 
 	@media (min-width: 992px) {
-		.flex-container {
+		.description {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-		}
-		.col-about {
-			.img-container {
+			flex-wrap: wrap;
+			h1 { 
+				width: 90%; 
+				text-align: left;
+			}
+			img {
 				width: 30%;
 				order: 2;
 				margin: 0;
 				float: none;
 			}
-			p { width: 60%; }
+			p { width: 65%; }
+		}
+		.skills {
+			h1 { 
+				width: 90%;
+				text-align: left;
+			}
 		}
 	}
 
 	@media (min-width: 1200px) {
-		h1 { margin: 20px auto 5px; }
-		.col-about {
-			.img-container { width: 28%; }
+		.description {
+			margin: 50px;
+			img { width: 28%; }
 			p { width: 68%; }
 		}
 
-		.col-skills {
+		.skills {
+			margin: 50px;
+		}
+
+		.skills .css-grid {
 			grid-template-columns: repeat(6, 1fr);
 			grid-template-rows: initial;
 			margin-bottom: 25px;
 		}
 
 	}
-
+	
+	/* need to test this media query at work */
 	@media (min-width: 1850px) {
-		.col-about {
-			margin: 50px auto;
+		#about {
+			max-width: 70vw;
+		}
+		.description {
+			h1 { font-size: 2em; }
 			p { font-size: 1.5em; }
 		}
 
-		.col-skills {
+		.skills {
+			h1 { font-size: 2em; }
 			.skill-item {
 				padding: 50px;
 			}
@@ -275,56 +292,71 @@ ul.links li a:active {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-content: center;
+	margin: 50px 15px;
 }
 
 div.project {
 	position: relative;
-	width: 90%;
-	margin: 10px;
+	margin: 30px 0px;
+	img {
+		display: block;
+	  max-width: 100%;
+		border: 1px solid #000;
+		border-radius: 5px;
+		box-sizing: border-box;
+		opacity: 1;
+		transition: all 0.5s ease;
+	}
+
+	a {
+		display: block;
+		border-radius: 5px;
+		background-color: #b7b7b7;
+	}
+
+	a span {
+		opacity: 0;
+		transition: opacity 0.5s ease;
+		position: absolute;
+		top: 85px;
+		left: 135px;
+		font-size: 2em;
+		font-family: 'Jura', sans-serif;
+		font-weight: 800;
+		color: #000080;
+	}
+
+	h2 {
+		font-family: 'Josefin Slab', serif;
+		font-size: 2em;
+		text-align: center;
+		margin: 10px 0px;
+	} 
+
+	p {
+		font-family: 'Jura', sans-serif;
+		text-align: center;
+		margin: 5px 0px;
+	}
 }
 
-div.project img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: auto;
-	border: 1px solid #000;
-}
-
-a.img-hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    color: #FFF;
-
-}
-
-div.project:hover a.img-hover {
-    display: block;
-    text-decoration: none;
-    background: rgba(0, 0, 0, .6);
-    cursor: pointer;
-}
-
-a.img-hover h2 {
-	text-align: center;
-	font-family: 'Josefin Slab', serif;
-	font-size: 3em;
-	padding-top: 3%;
-	margin-bottom: 0px;
-}
-
-a.img-hover p {
-	text-align: center;
-	font-family: 'Jura', sans-serif;
-	font-size: 1.5em;
-	margin-top: 0px;
+div.project a:hover {
+	img {
+		opacity: 0.3;
+	}
+	span {
+		opacity: 1;
+	}
 }
 
 @media (min-width: 992px) {
+	div.project {
+		width: 40%;
+		margin: 30px 20px;
+	}
+}
+
+@media (min-width: 1200px) {
 	div.project {
 		width: 30%;
 	}

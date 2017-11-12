@@ -143,6 +143,10 @@
 
 	#tictactoe .game-board {
 		margin: 0px;
+		#board {
+			width: 450px;
+			height: 450px;
+		}
 	}
 
 	#tictactoe .game-description {

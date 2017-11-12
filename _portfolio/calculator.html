@@ -3,21 +3,26 @@ title: calculator
 collections: portfolio
 ---
 
-<div class="container" id="calculator">
-	<div class="display">
-		<input type="text" v-model="display" :class="{ 'error': error }" disabled="disabled">
-		<div class="buttons-grid">
-			<button v-for="btn in buttons" @click="btnAction" v-text="btn"></button>
+<div class="container">
+	<div id="calculator">
+		
+		<div class="display">
+			<input type="text" v-model="display" :class="{ 'error': error }" disabled="disabled">
+			<div class="buttons-grid">
+				<button v-for="btn in buttons" @click="btnAction" v-text="btn"></button>
+			</div>
 		</div>
-	</div>
-	<div class="description">
-		<h1>Vue.Js Calculator</h1>
-		<ul>
-			<li><i class="fa fa-angle-right"></i> A basic calculator built with Vue.js</li>
-			<li><i class="fa fa-angle-right"></i> Makes calculations with JavaScript's eval function</li>
-			<li><i class="fa fa-angle-right"></i> Buttons use CSS Grid Layout</li>
-		</ul>
-	</div>
-</div>
+
+		<div class="description">
+			<h1>Vue.Js Calculator</h1>
+			<ul>
+				<li><i class="fa fa-angle-right"></i> A basic calculator built with Vue.js</li>
+				<li><i class="fa fa-angle-right"></i> Makes calculations with JavaScript's eval function</li>
+				<li><i class="fa fa-angle-right"></i> Buttons use CSS Grid Layout</li>
+			</ul>
+		</div>
+
+	</div> <!-- end #calculator -->
+</div> <!-- end container -->
 
 {% include calculator-footer.html %}
