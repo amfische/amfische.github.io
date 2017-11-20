@@ -1,85 +1,49 @@
+#tictactoe {
+	padding: 10px;
+	margin: 50px 0px;
+}
+
 #tictactoe .display {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 7.5em 0px;
+	margin-bottom: 100px;
 
 	#board {
-		width: 425px;
-		height: 425px;
-		background-color: #000;
-		margin-bottom: 2em;
+		display: grid;
+		grid-gap: .15em;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		height: 400px;
+		margin-bottom: 50px;
+		.space {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 4em;
+			background-color: black;
+			color: white;
+			&:hover {
+				cursor: pointer;
+				color: yellow;
+			}
+		}
 	}
-
-	.board-row {
-		width: 100%;
-		height: 33.333333%;
-		display: flex;
-		border: 1px solid #fff;
-	}
-
-	.board-space {
-		height: 100%;
-		width: 33.333333%;
-		border: 1px solid #fff;
-		font-family: 'Josefin Slab', serif;
-		font-size: 4em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		user-select: none;
-		-webkit-user-select: none; /* Chrome/Safari */        
-		-moz-user-select: none; /* Firefox */
-		-ms-user-select: none; /* IE10+ */
-	}
-
-	.board-space:hover {
-		background-color: #c3c3c3;
-		opacity: 0.5;
-		cursor: pointer;
-	}
-
-	.zero, .two, .four, .six, .eight {
-		color: #4666FF;
-	}
-
-	.one, .three, .five, .seven, .nine {
-		color: #C2FF46;
-	}
+	.zero, .two, .four, .six, .eight { color: #4666FF; }
+	.one, .three, .five, .seven, .nine { color: #C2FF46; }
 
 	#controls {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 		align-items: center;
-		width: 87%;
-
-		.choose-symbol {
-			display: flex;
-			align-items: center;
-		}
 
 		h3 {
-			margin: 0px 10px;
+			margin: 0px;
 			font-weight: 200;
 		}
 
-		.symbols {
-			display: flex;
-			justify-content: space-around;
-		}
-
-		.symbols label {
-			margin: 0px 15px;
-			display: flex;
-		}
-
-		.symbols label:hover,
-		.symbols label input:hover {
-			cursor: pointer;
-		}
-
-		.symbols span {
-			padding-left: 7.5px;
+		label {
+	    width: 8%;
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
 		}
 
 		button {
@@ -88,10 +52,7 @@
 			border: 1px solid black;
 			border-radius: 5px;
 			font-family: 'Jura', sans-serif;
-		}
-
-		button:hover {
-			cursor: pointer;
+			&:hover { cursor: pointer; }
 		}
 	}
 }
@@ -101,6 +62,7 @@
 	h1 {
 		margin-top: 1.15em;
 		margin-bottom: .25em;
+		text-align: center;
 		font-weight: 100;
 		font-family: 'Josefin Slab', serif;
 	}
@@ -108,13 +70,18 @@
 	ul {
 		list-style: none;
 		padding: 0px;
+		text-align: center;
 	}
 
 	li {
 		padding-bottom: 15px;
 		font-size: 18px;
-	    font-family: 'Jura', sans-serif;
-	    font-weight: 400;
+    font-family: 'Jura', sans-serif;
+    font-weight: 400;
+	}
+
+	.fa-li {
+		position: initial;
 	}
 
 	/*li:before {
@@ -127,36 +94,46 @@
 
 }
 
-@media only screen and (min-width: 576px) {
-	#tictactoe .game-board #board {
-		width: 525px;
-		height: 525px;
+@media (min-width: 768px) {
+	#tictactoe .display {
+		#board {
+			width: 450px;
+			height: 450px;
+			margin: auto;
+		}
+		#controls {
+			width: 400px;
+			margin: 25px auto;
+		}
 	}
+
 }
 
-@media only screen and (min-width: 1200px) {
+@media (min-width: 1200px) {
 	#tictactoe {
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
-	}
-
-	#tictactoe .game-board {
 		margin: 0px;
-		#board {
-			width: 450px;
-			height: 450px;
-		}
 	}
 
-	#tictactoe .game-description {
-		width: 43%;
+	#tictactoe .display { 
+		margin: 0px; 
+		#board { margin: 50px auto; }
+	}
+
+	#tictactoe .description {
+		width: 45%;
+		h1 { text-align: left; }
+		ul { text-align: left; }
+		.fa-li { position: absolute; }
 	}
 
 }
 
-@media only screen and (min-width: 1650px) {
-	#tictactoe .game-board { 
+/* need to test at work */
+@media (min-width: 1650px) {
+	#tictactoe .display { 
 		
 		#board {
 			width: 725px;
