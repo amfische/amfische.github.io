@@ -80,6 +80,10 @@
     font-weight: 400;
 	}
 
+	.fa-ul {
+		margin-left: 0px;
+	}
+
 	.fa-li {
 		position: initial;
 	}
@@ -126,6 +130,7 @@
 		width: 45%;
 		h1 { text-align: left; }
 		ul { text-align: left; }
+		.fa-ul { margin-left: 2.14285714em; }
 		.fa-li { position: absolute; }
 	}
 

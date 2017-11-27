@@ -1,5 +1,6 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="https://use.fontawesome.com/d3c9e0b791.js"></script>
+<script src="https://unpkg.com/vue@2.4.4"></script>
 
 <script type="text/javascript" src="/assets/js/tictactoe/board.js"></script>
 <script type="text/javascript" src="/assets/js/tictactoe/boardspace.js"></script>
@@ -11,11 +12,11 @@
 	var x = $('.x')[0];
 	var o = $('.o')[0];
 	$(document).ready(function() {
-		console.log($board);
-		document.addEventListener('click', function() {
-			console.log($board.spaces.length);
-		});
-		$('.start').click(function() {
+		// console.log($board);
+		// document.addEventListener('click', function() {
+		// 	console.log($board.spaces.length);
+		// });
+		$('.starts').click(function() {
 			if (!x.checked && !o.checked) {
 				alert('Please choose a symbol');
 			} else if (x.checked) {
@@ -32,6 +33,20 @@
 			
 		});
 	});
+	new Vue({
+		el: '.display',
+		data: {
+			board: new Board(),
+		},
+		mounted() {
+			console.log(this.board)
+		},
+		methods: {
+			startGame() {
+				console.log('begin')
+			}
+		}
+	})
 </script>
 
 </body>
