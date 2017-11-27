@@ -1,5 +1,20 @@
 "use strict";
 
+class newBoard {
+
+	constructor() {
+		this.width = 3;
+		this.height = 3;
+		this.availableMoves = 9;
+		this.spaces = [];
+		for (var y = 1; y <= this.height; y++) {
+			for (var x = 1; x <= this.width; x++) {
+				this.spaces.push(new BoardSpace(x,y));
+			}
+		}
+	}
+
+}
 //initial board object
 function Board() {
 	this.width = 3;

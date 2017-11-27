@@ -37,13 +37,24 @@
 		el: '.display',
 		data: {
 			board: new Board(),
+			symbol: '',
+			newboard: new newBoard()
 		},
 		mounted() {
 			console.log(this.board)
 		},
 		methods: {
 			startGame() {
+				if (this.symbol === '') {
+					alert('Please choose a symbol')
+				} else {
+					p1 = new Player($board, 'X', false);
+					p2 = new Player($board, 'O', true);
+				}
 				console.log('begin')
+			},
+			occupySquare(x,y) {
+				console.log(x,y)
 			}
 		}
 	})

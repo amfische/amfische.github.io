@@ -26,15 +26,15 @@ collections: porfolio
 				</div>
 			</div> -->
 			<div id="board">
-				<div class="space">X</div>
-				<div class="space">X</div>
+				<div class="space" v-for="square in board.spaces" v-text="square.value" @click="occupySquare(square.XCoordinate, square.YCoordinate)"></div>
+<!-- 				<div class="space">X</div>
 				<div class="space">O</div>
 				<div class="space">O</div>
 				<div class="space">O</div>
 				<div class="space">X</div>
 				<div class="space">X</div>
 				<div class="space">O</div>
-				<div class="space">X</div>
+				<div class="space">X</div> -->
 			</div>
 
 <!-- 			<div id="controls">
@@ -49,8 +49,8 @@ collections: porfolio
 			</div> -->
 			<div id="controls">
 				<h3>Choose Symbol</h3>
-				<label><input type="radio" name="symbol" class="x"><span>X</span></label>
-				<label><input type="radio" name="symbol" class="o"><span>O</span></label>
+				<label><input type="radio" name="symbol" class="x" value="x" v-model="symbol"><span>X</span></label>
+				<label><input type="radio" name="symbol" class="o" value="o" v-model="symbol"><span>O</span></label>
 				<button class="start" @click="startGame">Start</button>
 			</div>
 
