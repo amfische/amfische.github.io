@@ -1,58 +1,64 @@
 "use strict";
 
-class newBoard {
+class Board {
 
 	constructor() {
-		this.width = 3;
-		this.height = 3;
-		this.availableMoves = 9;
-		this.spaces = [];
-		for (var y = 1; y <= this.height; y++) {
-			for (var x = 1; x <= this.width; x++) {
-				this.spaces.push(new BoardSpace(x,y));
+		this.availableMoves = 9
+		this.spaces = [
+			new BoardSpace(1,3),
+			new BoardSpace(2,3),
+			new BoardSpace(3,3),
+			new BoardSpace(1,2),
+			new BoardSpace(2,2),
+			new BoardSpace(3,2),
+			new BoardSpace(1,1),
+			new BoardSpace(2,1),
+			new BoardSpace(3,1),
+		]
+	}
+
+	reset() {
+		this.spaces.forEach((e) => {
+			e.occupied = false
+			e.value = ''
+		})
+		this.availableMoves = 9
+	}
+
+	occupySquare(x, y, marker) {
+		this.spaces.forEach((e) => {
+			if (e.x === x && e.y === y && !e.occupied) {
+				e.occupied = true
+				e.value = marker
 			}
+		})
+		this.availableMoves--
+	}
+
+}
+
+// Board.prototype.play = function(p1, p2) {
+// 	p1.opponent = p2;
+// 	p2.opponent = p1;
+// 	if (p1.marker === "X") {
+// 		p1.setTurn = true;
+// 	} else {
+// 		p2.setTurn = true;
+// 	}
+// }
+
+Board.prototype.update = function(move, marker) {
+	this.spaces.forEach((e) => {
+		if (e.x === move[1].x && e.y === move[1].y) {
+			e.value = marker
+			e.occupied = true
 		}
-	}
-
-}
-//initial board object
-function Board() {
-	this.width = 3;
-	this.height = 3;
-	this.availableMoves = 9;
-
-	this.spaces = [];
-	for (var y = 1; y <= this.height; y++) {
-		for (var x = 1; x <= this.width; x++) {
-			this.spaces.push(new BoardSpace(x,y));
-		}
-	}
+	})
+	this.availableMoves--
+	return this.game_status()
 }
 
-Board.prototype.reset = function() {
-	//clear board object values
-	for (var i = 0; i < this.spaces.length; i += 1) {
-		this.spaces[i].occupied = false;
-		this.spaces[i].value = "";
-	}
-	//reset available moves
-	this.availableMoves = 9;
-
-	//clear DOM elements
-	$('.board-space').empty();
-}
-
-Board.prototype.play = function(p1, p2) {
-	p1.opponent = p2;
-	p2.opponent = p1;
-	if (p1.marker === "X") {
-		p1.setTurn = true;
-	} else {
-		p2.setTurn = true;
-	}
-}
-
-Board.prototype.update = function(number, marker) {
+Board.prototype.updates = function(number, marker) {
 	var spacesObject = document.getElementsByClassName("board-space");
 	var x = this.spaces[number].XCoordinate;
 	var y = this.spaces[number].YCoordinate;

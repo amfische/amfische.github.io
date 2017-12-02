@@ -7,54 +7,45 @@
 <script type="text/javascript" src="/assets/js/tictactoe/players.js"></script>
 
 <script>
-	var $board = new Board();
-	var p1, p2;
-	var x = $('.x')[0];
-	var o = $('.o')[0];
-	$(document).ready(function() {
-		// console.log($board);
-		// document.addEventListener('click', function() {
-		// 	console.log($board.spaces.length);
-		// });
-		$('.starts').click(function() {
-			if (!x.checked && !o.checked) {
-				alert('Please choose a symbol');
-			} else if (x.checked) {
-				p1 = new Player($board, 'X', false);
-				p2 = new Player($board, 'O', true);
-				$board.reset();
-				$board.play(p1, p2);
-			} else {
-				p1 = new Player($board, 'O', false);
-				p2 = new Player($board, 'X', true);
-				$board.reset();
-				$board.play(p1, p2);
-			}
-			
-		});
-	});
 	new Vue({
 		el: '.display',
 		data: {
 			board: new Board(),
+			computer: new Player(),
+			user: new Player(),
 			symbol: '',
-			newboard: new newBoard()
+			start: false
+		},
+		created() {
+			this.computer.settings(this.board, this.user, true)
+			this.user.settings(this.board, this.computer, false)
+		},
+		watch: {
+			symbol(value) {
+				this.user.setMarker(value)
+				this.board.reset()
+			}
 		},
 		mounted() {
-			console.log(this.board)
+			// console.log(this.board)
 		},
 		methods: {
 			startGame() {
 				if (this.symbol === '') {
 					alert('Please choose a symbol')
 				} else {
-					p1 = new Player($board, 'X', false);
-					p2 = new Player($board, 'O', true);
+					this.start = true
+					this.user.turn = true
+					this.board.reset()
 				}
-				console.log('begin')
 			},
 			occupySquare(x,y) {
-				console.log(x,y)
+				if (this.start && this.user.turn) {
+					this.board.occupySquare(x, y, this.symbol)
+					this.user.endTurn()
+				} else {
+					alert('Please choose a symbol and click start')
+				}
 			}
 		}
 	})

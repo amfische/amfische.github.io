@@ -1,34 +1,57 @@
 "use strict"
 
-function Player(board, marker, isComputer) {
-	this.board = board;
-	this.marker = marker;
-	this.computer = isComputer;
-	this.turn = undefined;
-	this.opponent = undefined;	
-	
-	Object.defineProperty(this, "setTurn", {
-		get: function() { return this.turn },
-		set: function(value) { 
-			this.turn = value;
-			this.opponent.turn = !value;
-			if (value === true) {
-				if (this.computer === true) {
-					this.move_AI();
-				} else {
-					this.move_user();
-				}
+class Player {
+
+	constructor() {
+		this.board = {}
+		this.opponent = {}
+		this.marker = ''
+		this.computer = false
+		this.turn = false	
+	}
+
+	setMarker(value) {
+		this.marker = value
+		this.opponent.marker = value === 'X' ? 'O' : 'X'
+	}
+
+	set setTurn(value) {
+		this.turn = value;
+		this.opponent.turn = !value;
+		if (value) {
+			if (this.computer) {
+				this.move_AI();
 			} else {
-				if (this.opponent.computer === true) {
-					this.opponent.move_AI();
-				} else {
-					this.opponent.move_user();
-				}
+				this.move_user();
+			}
+		} else {
+			if (this.opponent.computer) {
+				this.opponent.move_AI();
+			} else {
+				this.opponent.move_user();
 			}
 		}
-	});
+	}
+
+	set changeTurns(value) {
+		this.turn = value
+		this.opponent = !value
+	}
+
+	endTurn() {
+		this.turn = false
+		this.opponent.turn = true
+		if (this.opponent.computer) {
+			this.opponent.move_AI()	
+		}
+	}
 }
 
+Player.prototype.settings = function(board, opponent, isComputer) {
+	this.board = board
+	this.opponent = opponent
+	this.computer = isComputer
+}
 
 Player.prototype.move_user = function() {
 	var that = this;
@@ -176,8 +199,8 @@ Player.prototype.move_AI = function() {
 	}
 
 	//use boardSpace coordinates to grab correct DOM element
-	best_move = document.getElementsByClassName(best_move[1].XCoordinate + "-" + best_move[1].YCoordinate);
-	best_move = best_move[0].id;
+	// best_move = document.getElementsByClassName(best_move[1].XCoordinate + "-" + best_move[1].YCoordinate);
+	// best_move = best_move[0].id;
 	
 	//play the best move
 	var status = this.board.update(best_move, this.marker);
@@ -200,6 +223,6 @@ Player.prototype.move_AI = function() {
 				break;
 		}
 	} else {
-		this.setTurn = false;
+		this.endTurn()
 	}
 }
