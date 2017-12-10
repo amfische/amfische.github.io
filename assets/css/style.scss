@@ -12,6 +12,10 @@
 ****************************/
 
 .container {
+	border-bottom: 1px solid #000;
+}
+
+.center-block {
 	/* 58px is height of navbar */
 	display: flex;
 	align-items: center;
@@ -25,6 +29,13 @@
 	clear: both;
 }
 
+@media (min-width: 1441px) {
+	nav.navbar, #about, #portfolio {
+		max-width: 75vw;
+		margin: auto;
+	}
+}
+
 /****************************
 				NAVIGATION
 ****************************/
@@ -34,7 +45,6 @@ nav.navbar {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #000;
 	box-sizing: border-box;
 	position: sticky;
 	top: 0px;
@@ -318,8 +328,8 @@ div.project {
 		opacity: 0;
 		transition: opacity 0.5s ease;
 		position: absolute;
-		top: 85px;
-		left: 135px;
+		top: 4em; /*85px*/
+		left: 6em; /*135px*/
 		font-size: 2em;
 		font-family: 'Jura', sans-serif;
 		font-weight: 800;

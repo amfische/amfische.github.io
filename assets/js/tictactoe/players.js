@@ -15,27 +15,10 @@ class Player {
 		this.opponent.marker = value === 'X' ? 'O' : 'X'
 	}
 
-	set setTurn(value) {
-		this.turn = value;
-		this.opponent.turn = !value;
-		if (value) {
-			if (this.computer) {
-				this.move_AI();
-			} else {
-				this.move_user();
-			}
-		} else {
-			if (this.opponent.computer) {
-				this.opponent.move_AI();
-			} else {
-				this.opponent.move_user();
-			}
-		}
-	}
-
-	set changeTurns(value) {
-		this.turn = value
-		this.opponent = !value
+	settings(board, opponent, isComputer) {
+		this.board = board
+		this.opponent = opponent
+		this.computer = isComputer
 	}
 
 	endTurn() {
@@ -45,12 +28,6 @@ class Player {
 			this.opponent.move_AI()	
 		}
 	}
-}
-
-Player.prototype.settings = function(board, opponent, isComputer) {
-	this.board = board
-	this.opponent = opponent
-	this.computer = isComputer
 }
 
 Player.prototype.move_user = function() {
