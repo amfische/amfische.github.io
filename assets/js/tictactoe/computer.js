@@ -38,10 +38,8 @@ class Computer {
 
 	//compute minimax value for a particular state/move
 	minimax(state) {
-
 		//Need to check for terminal game state at beginning of function
-		var status = state.game_status();
-		if (status[0]) {
+		if (state.gameover) {
 			//need to return a score
 			return state.score();
 		} else {

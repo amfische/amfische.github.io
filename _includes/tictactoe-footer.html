@@ -39,10 +39,14 @@
 					this.board.reset()
 				}
 			},
-			occupySquare(x,y) {
-				if (this.start && this.user.turn) {
-					this.board.occupySquare(x, y, this.symbol)
-					this.user.endTurn()
+			occupySquare(square) {
+				if (this.start && this.user.turn && !square.occupied) {
+					this.board.update(square, this.symbol)
+					if (!this.board.gameover()) {
+						this.user.endTurn()
+					} else {
+						this.board.displayWinner()
+					}
 				} else {
 					alert('Please choose a symbol and click start')
 				}

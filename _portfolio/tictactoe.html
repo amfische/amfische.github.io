@@ -26,7 +26,7 @@ collections: porfolio
 				</div>
 			</div> -->
 			<div id="board">
-				<div class="space" v-for="square in board.spaces" v-text="square.value" @click="occupySquare(square.x, square.y)"></div>
+				<div class="space" v-for="square in board.spaces" v-text="square.value" @click="occupySquare(square)"></div>
 			</div>
 
 <!-- 			<div id="controls">

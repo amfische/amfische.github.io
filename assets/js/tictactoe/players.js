@@ -25,45 +25,112 @@ class Player {
 		this.turn = false
 		this.opponent.turn = true
 		if (this.opponent.computer) {
-			this.opponent.move_AI()	
+			this.opponent.moveComputer()	
+		}
+	}
+
+	availableMoves(state) {
+		return state.spaces.filter(space => !space.occupied)
+	}
+
+	possibleStates(available, board) {
+		return available.map((emptySquare) => {
+			let nextState = new Board()
+
+			//update new board object to current game state
+			for (let i = 0; i < board.spaces.length; i++) {
+				if (board.spaces[i].occupied) {
+					nextState.spaces[i].occupied = true
+					nextState.spaces[i].value = board.spaces[i].value
+				}
+			}
+
+			//take a possible move on new board object
+			nextState.spaces.forEach((e) => {
+				if (e.x === emptySquare.x && e.y === emptySquare.y) {
+					e.occupied = true
+					e.value = board.availableMoves % 2 === 0 ? "O" : "X"
+				}
+			})
+
+			nextState.availableMoves = board.availableMoves - 1
+			return nextState
+		})
+	}
+
+	minimax(state) {
+		//Need to check for terminal game state at beginning of function
+		if (state.gameover) {
+			//need to return a score
+			return state.score();
+		} else {
+			var marker = state.availableMoves % 2 === 0 ? "O" : "X";	//keep track of whose turn it is
+			var stateScore;		// this stores the minimax value we'll compute
+			if (marker === "X") {
+				// X wants to maximize --> initialize to a value smaller than any possible score
+				stateScore = -1000;
+			} else {
+				// O wants to minimize --> initialize to a value larger than any possible score
+				stateScore = 1000;
+			}			
+
+			var availableMoves = this.availableMoves(state);
+			var possibleBoardStates = this.possibleStates(availableMoves, state);		
+
+			//calculate the minimax value for all available next states and evaluate the current state's value 
+      possibleBoardStates.forEach(function(nextState) {
+        let nextScore = minimax(nextState);
+        if(marker === "X") {
+          // X wants to maximize --> update stateScore if nextScore is larger
+          if(nextScore > stateScore)
+            stateScore = nextScore
+        }
+        else {
+          // O wants to minimize --> update stateScore if nextScore is smaller
+          if(nextScore < stateScore)
+            stateScore = nextScore
+        }
+      })
+      return stateScore
+		}
+	}
+
+	moveComputer() {
+		var availableMoves = this.availableMoves(this.board);
+		var possibleBoardStates = this.possibleStates(availableMoves, this.board);
+		var state_values = possibleBoardStates.map(function(state) {
+			return this.minimax(state);
+		}.bind(this));
+
+		//map minimax values with corresponding square
+		for (var i = 0; i < availableMoves.length; i++) {
+			state_values[i] = [state_values[i], availableMoves[i]];
+		}
+
+		//arrange values in ascending order
+		state_values.sort(function(a, b) {
+			return a[0] - b[0];
+		});
+
+		//if computer is playing as X grab maximum value
+		//if computer is playing as O grab minimum value
+		var best_move = [];
+		if (this.marker === "X") {
+			best_move = state_values[state_values.length - 1];
+		} else {
+			best_move = state_values[0];
+		}
+		
+		//play the best move
+		this.board.update(best_move[1], this.marker);
+		if (this.board.gameover()) {
+			this.board.displayWinner()
+		} else {
+			this.endTurn()
 		}
 	}
 }
 
-Player.prototype.move_user = function() {
-	var that = this;
-	var successfulMove = false;
-
-	$(".board-space").on('click', function(event) {
-		event.preventDefault();
-
-		if (!successfulMove && this.innerHTML === "") {
-			var status = that.board.update(this.id, that.marker);
-			successfulMove = true;
-			if (status[0]) {
-				switch(status[1]) {
-					case "X":
-						setTimeout(function() {
-							alert("X is the Winner!");
-						}, 500);
-						break;
-					case "O":
-						setTimeout(function() {
-							alert("O is the Winner!");
-						}, 500);
-						break;
-					case "draw":
-						setTimeout(function() {
-							alert("Cats Game!");
-						}, 500);
-						break;
-				}
-			} else {
-				that.setTurn = false;
-			}			
-		}
-	});	
-}
 
 Player.prototype.move_AI = function() {
 	//function to return array of available moves
@@ -174,31 +241,11 @@ Player.prototype.move_AI = function() {
 	} else {
 		best_move = state_values[0];
 	}
-
-	//use boardSpace coordinates to grab correct DOM element
-	// best_move = document.getElementsByClassName(best_move[1].XCoordinate + "-" + best_move[1].YCoordinate);
-	// best_move = best_move[0].id;
 	
 	//play the best move
-	var status = this.board.update(best_move, this.marker);
-	if (status[0]) {
-		switch(status[1]) {
-			case "X":
-				setTimeout(function() {
-					alert("X is the Winner!");
-				}, 500);
-				break;
-			case "O":
-				setTimeout(function() {
-					alert("O is the Winner!");
-				}, 500);
-				break;
-			case "draw":
-				setTimeout(function() {
-					alert("Cats Game!");
-				}, 500);
-				break;
-		}
+	this.board.update(best_move[1], this.marker);
+	if (this.board.gameover()) {
+		this.board.displayWinner()
 	} else {
 		this.endTurn()
 	}
