@@ -7,45 +7,15 @@ collections: porfolio
 	<div id="tictactoe">
 
 		<div class="display">
-
-<!-- 			<div id="board">
-				<div class="board-row">
-					<div class="board-space 1-3 six" id="6">X</div>
-					<div class="board-space 2-3 seven" id="7">O</div>
-					<div class="board-space 3-3 eight" id="8">X</div>
-				</div>
-				<div class="board-row">
-					<div class="board-space 1-2 three" id="3">O</div>
-					<div class="board-space 2-2 four" id="4">X</div>
-					<div class="board-space 3-2 five" id="5">O</div>
-				</div>
-				<div class="board-row">
-					<div class="board-space 1-1 zero" id="0">X</div>
-					<div class="board-space 2-1 one" id="1">O</div>
-					<div class="board-space 3-1 two" id="2">X</div>
-				</div>
-			</div> -->
 			<div id="board">
 				<div class="space" v-for="square in board.spaces" v-text="square.value" @click="occupySquare(square)"></div>
 			</div>
-
-<!-- 			<div id="controls">
-				<div class="choose-symbol">
-					<h3>Choose Symbol</h3>
-					<div class="symbols">
-						<label><input type="radio" name="symbol" class="x"><span>X</span></label>
-						<label><input type="radio" name="symbol" class="o"><span>O</span></label>	
-					</div>
-				</div>
-				<button class="start">Start</button>
-			</div> -->
 			<div id="controls">
 				<h3>Choose Symbol</h3>
 				<label><input type="radio" name="symbol" value="X" v-model="symbol"><span>X</span></label>
 				<label><input type="radio" name="symbol" value="O" v-model="symbol"><span>O</span></label>
 				<button class="start" @click="startGame">Start</button>
 			</div>
-
 		</div> <!-- end display -->
 
 		<div class="description">

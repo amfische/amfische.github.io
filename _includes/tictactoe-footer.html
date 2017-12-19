@@ -24,10 +24,8 @@
 			symbol(value) {
 				this.user.setMarker(value)
 				this.board.reset()
+				this.start = false
 			}
-		},
-		mounted() {
-			// console.log(this.board)
 		},
 		methods: {
 			startGame() {
@@ -35,8 +33,12 @@
 					alert('Please choose a symbol')
 				} else {
 					this.start = true
-					this.user.turn = true
 					this.board.reset()
+					if (this.user.marker === 'X') {
+						this.user.turn = true
+					} else {
+						this.computer.moveComputer()
+					}
 				}
 			},
 			occupySquare(square) {

@@ -76,11 +76,14 @@ class Board {
 	score() {
 		switch (this.winner) {
 			//if X wins return positive score minus number of moves it took to win
-			case 'X': return 10 - this.availableMoves 
+			case 'X': 
+				return 10 - this.availableMoves 
 			//if X loses return negative score plus number of moves it took to lose
-			case 'O': return -10 + this.availableMoves 
+			case 'O': 
+				return -10 + this.availableMoves 
 			//return 0 points for a draw
-			default: return 0 
+			default: 
+				return 0 
 		}
 	}
 
