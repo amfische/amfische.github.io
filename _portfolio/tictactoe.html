@@ -12,9 +12,15 @@ collections: porfolio
 			</div>
 			<div id="controls">
 				<h3>Choose Symbol</h3>
-				<label><input type="radio" name="symbol" value="X" v-model="symbol"><span>X</span></label>
-				<label><input type="radio" name="symbol" value="O" v-model="symbol"><span>O</span></label>
-				<button class="start" @click="startGame">Start</button>
+				<label class="radio-btn">X
+				  <input type="radio" name="symbol" value="X" v-model="symbol">
+				  <span class="checkmark"></span>
+				</label>
+				<label class="radio-btn">O
+				  <input type="radio" name="symbol" value="O" v-model="symbol">
+				  <span class="checkmark"></span>
+				</label>
+				<button class="start" @click="startGame" v-text="startBtn"></button>
 			</div>
 		</div> <!-- end display -->
 

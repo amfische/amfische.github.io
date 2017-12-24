@@ -14,7 +14,8 @@
 			computer: new Player(),
 			user: new Player(),
 			symbol: '',
-			start: false
+			start: false,
+			startBtn: 'Start'
 		},
 		created() {
 			this.computer.settings(this.board, this.user, true)
@@ -25,6 +26,7 @@
 				this.user.setMarker(value)
 				this.board.reset()
 				this.start = false
+				this.startBtn = 'Start'
 			}
 		},
 		methods: {
@@ -33,6 +35,7 @@
 					alert('Please choose a symbol')
 				} else {
 					this.start = true
+					this.startBtn = 'Restart'
 					this.board.reset()
 					if (this.user.marker === 'X') {
 						this.user.turn = true
