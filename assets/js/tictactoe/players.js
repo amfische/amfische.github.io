@@ -29,6 +29,14 @@ class Player {
 		}
 	}
 
+	checkForEndState() {
+		if (this.board.gameover()) {
+			this.board.displayWinner()
+		} else {
+			this.endTurn()
+		}
+	}
+
 	availableMoves(state) {
 		return state.spaces.filter(space => !space.occupied)
 	}
@@ -112,15 +120,16 @@ class Player {
 
 		//If computer is 'X' play maximum value move, else play minimum value move
 		if (this.marker === "X") {
-			this.board.update(stateValues[stateValues.length - 1][1], this.marker)
+			setTimeout(() => {
+				this.board.update(stateValues[stateValues.length - 1][1], this.marker)
+				this.checkForEndState()
+			}, 1000)
 		} else {
-			this.board.update(stateValues[0][1], this.marker)
-		}
-
-		if (this.board.gameover()) {
-			this.board.displayWinner()
-		} else {
-			this.endTurn()
+			setTimeout(() => {
+				this.board.update(stateValues[0][1], this.marker)
+				this.checkForEndState()
+			}, 1000)
+			
 		}
 	}
 }
