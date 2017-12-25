@@ -1,9 +1,9 @@
 'use strict';
 
 var $on_switch = document.getElementById('on-off');
-var $start = document.getElementById('start').childNodes[1];
-var $strict = document.getElementById('strict').childNodes[3];
-var $strict_light = document.getElementById('strict').childNodes[1];
+var $start = document.getElementsByClassName('start')[0];
+var $strict = document.getElementsByClassName('strict')[0];
+var $strict_light = document.getElementsByClassName('strict-light')[0];
 
 var controls = {
 	game_on: false

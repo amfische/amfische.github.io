@@ -4,7 +4,7 @@
 	justify-content: space-around;
 	flex-wrap: wrap;
 
-	.game-circle {
+	.board {
 	    width: 575px;
 	    height: 575px;
 	    border-radius: 50%;
@@ -17,74 +17,74 @@
 			width: 95%;
 			height: 95%;
 			display: flex;
-		  	flex-wrap: wrap;
+		  flex-wrap: wrap;
 		}
 
-		.green, .red,
-		.yellow, .blue {
+		#green, #red,
+		#yellow, #blue {
 			height: 45%;
 			width: 45%;
 			margin: auto;
 		}
 
-		.green {
-		    background-color: green;
-		    border-top-left-radius: 100%;
+		#green {
+	    background-color: green;
+	    border-top-left-radius: 100%;
 		}
 
-		.red {
+		#red {
 			background-color: red;
-		    border-top-right-radius: 100%;
+		  border-top-right-radius: 100%;
 		}
 
-		.yellow {
+		#yellow {
 			background-color: yellow;
-		    border-bottom-left-radius: 100%;
+		  border-bottom-left-radius: 100%;
 		}
 
-		.blue {
+		#blue {
 			background-color: blue;
-		    border-bottom-right-radius: 100%;
+		  border-bottom-right-radius: 100%;
 		}
 
-		.controls-circle {
+		.controls {
 			height: 245px;
 			width: 245px;
-		    position: absolute;
-		    background-color: white;
-		    border-radius: 50%;
-		    border: 23px solid #323232;
+	    position: absolute;
+	    background-color: white;
+	    border-radius: 50%;
+	    border: 23px solid #323232;
 		}
 
 		h1 {
-		    text-align: center;
-		    margin-top: 12%;
-		    margin-bottom: 7%;
-		    font-size: 48px;
-		    font-weight: 900;
+	    text-align: center;
+	    margin-top: 12%;
+	    margin-bottom: 7%;
+	    font-size: 48px;
+	    font-weight: 900;
 		}
 
 		h1 sup {
-		    font-size: 16px;
-		    top: -1.5em;
+	    font-size: 16px;
+	    top: -1.5em;
 		}
 
 		.settings {
-		    text-align: center;
+	    text-align: center;
 		}
 
 		.settings-col {
-		    margin: 0 10px;
-		    display: inline-block;
+	    margin: 0 10px;
+	    display: inline-block;
 		}
 
 		.settings-col button {
-		    border-radius: 50%;
-		    border: 2px solid #323232;
-		    height: 20px;
-		    width: 20px;
-		    outline: none;
-		    margin-bottom: 5px;
+	    border-radius: 50%;
+	    border: 2px solid #323232;
+	    height: 20px;
+	    width: 20px;
+	    outline: none;
+	    margin-bottom: 5px;
 		}
 
 		.settings-col p {
@@ -92,38 +92,38 @@
 		}
 
 		input.level-count {
-		    line-height: 1;
-		    width: 42px;
-		    text-align: center;
-		    background-color: black;
-		    border: none;
-		    color: red;
-		    border-radius: 11%;
-		    font-size: 21px;
-		    padding: 5px;
+	    line-height: 1;
+	    width: 42px;
+	    text-align: center;
+	    background-color: black;
+	    border: none;
+	    color: red;
+	    border-radius: 11%;
+	    font-size: 21px;
+	    padding: 5px;
 		}
 
 		button.start {
-		    background-color: red;
+	    background-color: red;
 		}
 
 		button.strict {
-		    background-color: yellow;
+	    background-color: yellow;
 		}
 
 		.strict-light {
-		    border-radius: 50%;
-		    border: 1px solid #323232;
-		    height: 5px;
-		    width: 5px;
-		    margin: 0 auto 5px auto;
+	    border-radius: 50%;
+	    border: 1px solid #323232;
+	    height: 5px;
+	    width: 5px;
+	    margin: 0 auto 5px auto;
 		}
 
 		.switch {
-		    width: 40px;
-		    height: 22px;
-		    margin: 15px auto;
-		    position: relative;
+	    width: 40px;
+	    height: 22px;
+	    margin: 15px auto;
+	    position: relative;
 		}
 
 		/* Hide default HTML checkbox */
@@ -179,7 +179,7 @@
 		}
 	}
 
-	.game-description {
+	.description {
 		ul {
 			list-style: none;
 		}
@@ -187,8 +187,8 @@
 		li {
 			padding: 10px 0px;
 			font-size: 18px;
-		    font-family: 'Jura', sans-serif;
-		    font-weight: 400;
+	    font-family: 'Jura', sans-serif;
+	    font-weight: 400;
 		}
 
 		li i {
@@ -203,15 +203,15 @@
 		padding-top: 55px;
 	}
 
-	#simon .game-circle {
+	#simon .board {
 		margin-bottom: 55px;
 	}
 }
 
 @media (max-width: 768px) {
-	#simon .game-circle {
+	#simon .board {
 		width: 475px;
 		height: 475px;
 	}
-	#simon .game-description ul { padding: 0px; }
+	#simon .description ul { padding: 0px; }
 }
