@@ -1,0 +1,118 @@
+#portfolio {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	margin: 50px 15px;
+	div.project {
+		margin: 30px 0px;
+
+		a.calculator {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 226px;
+			text-decoration: none;
+			background-color: #6ce82f;
+			span {
+				font-family: 'Boogaloo', cursive;
+				font-size: 4em;
+				color: black;
+			}
+		}
+
+		a.simon {
+			display: grid;
+	    grid-template-columns: calc(50% - .5em) calc(50% - .5em);
+	    grid-template-rows: 105px 105px;
+	    grid-gap: 1em;
+	    background-color: #323232;
+	    .blue { background-color: blue; }
+	    .yellow { background-color: yellow; }
+	    .red { background-color: red; }
+	    .green { background-color: green; }
+
+	    &:hover {
+				cursor: pointer;
+	    }
+		}
+
+		a.tictactoe {
+			display: grid;
+			grid-template-columns: 32% 32% 32%;
+			grid-column-gap: 2%;
+			grid-template-rows: 226px;
+			text-decoration: none;
+			background-color: #fff;
+			div {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 4em;
+				background-color: #6666ff;
+				color: yellow;
+			}
+		}
+
+		a.timesheet {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 226px;
+			text-decoration: none;
+			background-color: #1f1955;
+			span {
+				color: #f47b20;
+				border-bottom: 5px solid;
+			}
+		}
+
+		a.weather {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 226px;
+			text-decoration: none;
+			background-color: purple;
+			color: yellow;
+			div {
+				margin: 0 10px;
+			}
+			div.icons {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				
+			}
+			div.temp {
+				font-size: 5em;
+			}
+		}
+
+		h2 {
+			font-family: 'Josefin Slab', serif;
+			font-size: 2em;
+			text-align: center;
+			margin: 10px 0px;
+		} 
+
+		p {
+			font-family: 'Jura', sans-serif;
+			text-align: center;
+			margin: 5px 0px;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	#portfolio div.project {
+		width: 40%;
+		margin: 30px 20px;
+	}
+}
+
+@media (min-width: 1200px) {
+	#portfolio div.project {
+		width: 30%;
+	}
+}
