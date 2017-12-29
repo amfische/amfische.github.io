@@ -135,26 +135,12 @@ ul.links li a:active {
 
 #about {
 
-	.c100 {
-		float: none;
-		margin: 25px auto;
-	}
-
-	.c100.big {
-		font-size: 115px; /*default width 240px*/
-	}
-
 	.description {
 		margin: 50px 10px;
 		h1 {
 			font-family: 'Josefin Slab', serif;
 			text-align: center;
 		  margin: 5px auto;
-		}
-
-		.img-container {
-			width: 100%;
-			margin-bottom: 40px;
 		}
 		
 		img {
@@ -192,14 +178,22 @@ ul.links li a:active {
 		}
 		
 		.skill-item {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
 			padding: 0px;
-			margin: 0px;
+			margin: 10px 0px;
 			box-sizing: border-box;
+			img {
+				width: 100%;
+				height: 10em;
+			}
 		}
 
 		.skill-item p {
 			font-size: 1.35em;
-			margin: 0px;
+			margin: 15px 0px;
 			text-align: center;
 			font-family: 'Josefin Slab', serif;
 		}
@@ -259,7 +253,7 @@ ul.links li a:active {
 		}
 
 		.skills .css-grid {
-			grid-template-columns: repeat(6, 1fr);
+			grid-template-columns: repeat(5, 1fr);
 			grid-template-rows: initial;
 			margin-bottom: 25px;
 		}
@@ -268,9 +262,8 @@ ul.links li a:active {
 	
 	/* need to test this media query at work */
 	@media (min-width: 1850px) {
-		#about {
-			max-width: 70vw;
-		}
+		max-width: 70vw;
+
 		.description {
 			h1 { font-size: 2em; }
 			p { font-size: 1.5em; }
@@ -284,10 +277,6 @@ ul.links li a:active {
 			.skill-item p {
 				font-size: 2em;	
 			}
-		}
-
-		.c100.big {
-			font-size: 215px;
 		}
 	}
 
