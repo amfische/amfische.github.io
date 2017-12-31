@@ -14,10 +14,6 @@
 ****************************/
 * { box-sizing: border-box; }
 
-.container {
-	border-bottom: 1px solid #000;
-}
-
 .center-block {
 	/* 58px is height of navbar */
 	display: flex;
@@ -42,6 +38,9 @@
 /****************************
 				NAVIGATION
 ****************************/
+.nav-container {
+	border-bottom: 1px solid #000;
+}
 
 nav.navbar {
   display: flex;
