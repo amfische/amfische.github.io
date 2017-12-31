@@ -1,16 +1,18 @@
 ---
 ---
 
-@import url('https://fonts.googleapis.com/css?family=Boogaloo');
+@import url('https://fonts.googleapis.com/css?family=Boogaloo|Jura|Josefin+Slab:700');
 @import 'portfolio';
 @import 'simon';
 @import 'tictactoe';
 @import 'circle';
 @import 'calculator';
+@import 'weather';
 
 /****************************
 		GENERAL STYLES
 ****************************/
+* { box-sizing: border-box; }
 
 .container {
 	border-bottom: 1px solid #000;

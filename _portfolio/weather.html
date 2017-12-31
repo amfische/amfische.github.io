@@ -1,0 +1,40 @@
+---
+title: weather
+collections: portfolio
+---
+
+<div class="container center-block">
+	<div id="weather">
+		
+		<div class="display">
+			<h1>Mesa, USA</h1>
+			<div class="data">
+				<i class="wi wi-day-rain-mix"></i>
+				<span>53 &deg;</span>
+			</div>
+			<div class="options">
+				<button>Farenheight</button>
+				<button>Celsius</button>
+				<button>User Location</button>
+			</div>
+			<div class="city-search">
+				<input type="text" name="city">
+				<input type="submit" value="Search">
+			</div>
+		</div>
+
+		<div class="description">
+			<h1>Weather Application</h1>
+			<ul>
+				<li><i class="fa fa-angle-right"></i> Uses OpenWeatherMap API to gather data</li>
+				<li><i class="fa fa-angle-right"></i> Users location is determined by IP address</li>
+				<li><i class="fa fa-angle-right"></i> Search uses GoogleMaps API</li>
+				<li><i class="fa fa-angle-right"></i> Check out the <a href="#">Git repository</a></li>
+			</ul>
+		</div>
+
+	</div> <!-- end #calculator -->
+</div> <!-- end container -->
+
+{% include weather-footer.html %}
+

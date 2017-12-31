@@ -1,0 +1,78 @@
+#weather {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 50px;
+	padding: 10px;
+	font-family: 'Jura', serif;
+
+	div.display {
+		div.data, div.options, div.city-search {
+			display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    margin: 20px 0;
+	    i.wi {
+	    	margin: 0.25em 10px;
+				font-size: 10em;
+				color: rgb(146, 77, 163);
+			}
+			span {
+				display: inline-block;
+				margin: 0 10px;
+				font-size: 4em;
+				font-weight: 100;
+			}
+			button {
+				margin: 0 10px;
+			}
+		}
+	}
+
+	.description {
+		width: 100%;
+	}
+
+	h1 {
+		font-size: 2em;
+		font-weight: 400;
+		text-align: center;
+	}
+
+	ul {
+		list-style: none;
+		text-align: center;
+		font-size: 18px;
+		padding: 0px;
+		li {
+			padding: 10px 5px;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	#weather {
+		width: 70%;
+	}
+}
+
+@media (min-width: 992px) {
+	#weather{
+		margin-top: 0px;
+		width: 88%;
+		.display {
+			width: 35vw;
+		}
+		.description {
+			width: 30vw;
+			h1 {
+				text-align: left;
+			}
+			ul { 
+				padding-left: 25px; 
+				text-align: left;
+			}
+		}
+	}
+}

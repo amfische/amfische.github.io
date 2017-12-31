@@ -1,0 +1,34 @@
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://use.fontawesome.com/d3c9e0b791.js"></script>
+
+<script>
+	$(document).ready(function() {
+
+	//function to gather users local weather information based off IP address
+	function getLocalWeather() {
+		//request to ipinfo.io for user location data
+		$.getJSON('http://ipinfo.io', function(data) {
+			let lat = data.loc.split(',')[0]
+			let lng = data.loc.split(',')[1]
+
+			//setting request URL for OpenWeatherMap with coordinates from user location(IP)
+			var openWeatherMapURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + 
+				lng + "&appid=51f61b5f031e34a4e3c790f126690615&units=imperial"
+
+			$.getJSON(openWeatherMapURL, displayResults)
+		})
+	}
+
+	function displayResults(data) {
+		console.log(data)
+	}
+	// getLocalWeather()
+	
+	
+
+});
+
+</script>
+
+</body>
+</html>
