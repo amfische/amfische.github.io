@@ -13,7 +13,7 @@
 			temp: 0,
 			unit: 'farenheight',
 			icon: 'wi-na',
-			description: 'unavailable',
+			iconDescription: 'unavailable',
 			input: '',
 			error: false
 		},
@@ -67,7 +67,12 @@
 				this.temp = response.data.main.temp
 				this.unit = 'farenheight'
 				this.setIcon(response.data.weather[0].icon)
-				this.description = response.data.weather[0].description
+				this.iconDescription = response.data.weather[0].description
+				this.adjustIconHeight()
+			},
+			adjustIconHeight() {
+				var color = window.getComputedStyle(document.querySelector('.wi'), ':before').offSetHeight
+				console.log(color)
 			},
 			setIcon(icon) {
 				let _this = this

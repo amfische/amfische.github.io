@@ -12,48 +12,59 @@
 			font-size: 3.5em;
 			font-weight: 800;
 			text-align: center;
+			margin-top: 0;
 		}
-		div.data, div.options, div.city-search {
-			display: flex;
-	    justify-content: center;
-	    align-items: center;
-	    margin: 20px 0;
+	  div.icon {
+	  	display: flex;
+	  	align-items: center;
+	  	flex-direction: column;
+	  	margin: 0;
+	  	i.wi {
+		  	margin: 0.25em 10px;
+				font-size: 10em;
+				color: rgb(146, 77, 163);
+			}
 	  }
-	  div.city-search {
-	  	align-items: flex-start;
+	  div.temperature {
+	  	text-align: center;
+	  	p:first-child {
+		  	margin: 0 10px;
+				font-size: 4em;
+				font-weight: 100;
+			}
+			p:last-child {
+				font-size: 1.25em;
+				margin: 0;
+			}
 	  }
-    i.wi {
-    	margin: 0.25em 10px;
-			font-size: 10em;
-			color: rgb(146, 77, 163);
-		}
-		.data div p {
-			font-size: 1.25em;
-			margin: 0 0 2em 0;
-			text-align: center;
-		}
-		.city-search div p {
-			margin: 5px 0 0 10px;
-			color: red;
-		}
-		span.temperature {
-			display: inline-block;
-			margin: 0 10px;
-			font-size: 4em;
-			font-weight: 100;
-		}
-		button, input[type=submit] {
+	  div.options {
+	  	display: flex;
+	  	justify-content: center;
+	  	margin-top: 40px;
+	  	margin-bottom: 20px;
+	  }
+	  div.options button,
+	  div.city-search input[type=submit] {
 			margin: 0 10px;
 			background-color: rgb(146, 77, 163);
 	    color: yellow;
 	    padding: 5px 10px;
 	    border-radius: 4px;
-		}
-		input[type=text] {
-	    padding: 5px 10px;
-	    border-radius: 4px;
-	    border: 1px solid rgb(146, 77, 163);
-		}
+	  }
+	  div.city-search {
+	  	display: flex;
+	  	justify-content: center;
+	  	align-items: flex-start;
+	  	div p {
+	  		margin: 5px 0 0 10px;
+				color: red;	
+	  	}
+			input[type=text] {
+		    padding: 5px 10px;
+		    border-radius: 4px;
+		    border: 1px solid rgb(146, 77, 163);
+			}
+	  }
 	}
 
 	.description {
@@ -63,15 +74,14 @@
 			font-weight: 400;
 			text-align: center;
 		}
-	}
-
-	ul {
-		list-style: none;
-		text-align: center;
-		font-size: 18px;
-		padding: 0px;
-		li {
-			padding: 10px 5px;
+		ul {
+			list-style: none;
+			text-align: center;
+			font-size: 18px;
+			padding: 0px;
+			li {
+				padding: 10px 5px;
+			}
 		}
 	}
 }

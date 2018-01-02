@@ -8,12 +8,12 @@ collections: portfolio
 		
 		<div class="display">
 			<h1 v-text="city + ', ' + country"></h1>
-			<div class="data">
-				<div>
-					<i :class="['wi', icon]"></i>
-					<p v-text="description"></p>
-				</div>
-				<span class="temperature" v-text="temp + '&deg;'"></span>
+			<div class="icon">
+				<i :class="['wi', icon]"></i>
+			</div>
+			<div class="temperature">
+				<p v-text="temp + '&deg;'"></p>
+				<p v-text="iconDescription"></p>
 			</div>
 			<div class="options">
 				<button @click="farenheight">Farenheight</button>
