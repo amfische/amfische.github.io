@@ -13,7 +13,7 @@ collections: portfolio
 					<i :class="['wi', icon]"></i>
 					<p v-text="description"></p>
 				</div>
-				<span v-text="temp + '&deg;'"></span>
+				<span class="temperature" v-text="temp + '&deg;'"></span>
 			</div>
 			<div class="options">
 				<button @click="farenheight">Farenheight</button>
@@ -21,7 +21,10 @@ collections: portfolio
 				<button @click="getLocalWeather">User Location</button>
 			</div>
 			<div class="city-search">
-				<input type="text" name="city" v-model="input">
+				<div>
+					<input type="text" name="city" v-model="input" @keyup.enter="searchWeatherByCity">
+					<p v-show="error" v-text="'invalid entry'"></p>
+				</div>
 				<input type="submit" value="Search" @click="searchWeatherByCity">
 			</div>
 		</div>
@@ -31,7 +34,7 @@ collections: portfolio
 			<ul>
 				<li><i class="fa fa-angle-right"></i> Uses OpenWeatherMap API to get up-to-date weather information</li>
 				<li><i class="fa fa-angle-right"></i> Users location is determined by IP address</li>
-				<li><i class="fa fa-angle-right"></i> Search uses GoogleMaps API</li>
+				<li><i class="fa fa-angle-right"></i> Search requires a city and/or country</li>
 				<li><i class="fa fa-angle-right"></i> Check out the <a href="#">Git repository</a></li>
 			</ul>
 		</div>

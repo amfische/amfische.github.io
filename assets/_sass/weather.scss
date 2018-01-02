@@ -8,41 +8,61 @@
 	font-family: 'Jura', serif;
 
 	div.display {
+		h1 {
+			font-size: 3.5em;
+			font-weight: 800;
+			text-align: center;
+		}
 		div.data, div.options, div.city-search {
 			display: flex;
 	    justify-content: center;
 	    align-items: center;
 	    margin: 20px 0;
-	    i.wi {
-	    	margin: 0.25em 10px;
-				font-size: 10em;
-				color: rgb(146, 77, 163);
-			}
-			div p {
-				font-size: 1.25em;
-				margin: 0 0 2em 0;
-				text-align: center;
-			}
-			span {
-				display: inline-block;
-				margin: 0 10px;
-				font-size: 4em;
-				font-weight: 100;
-			}
-			button {
-				margin: 0 10px;
-			}
+	  }
+	  div.city-search {
+	  	align-items: flex-start;
+	  }
+    i.wi {
+    	margin: 0.25em 10px;
+			font-size: 10em;
+			color: rgb(146, 77, 163);
+		}
+		.data div p {
+			font-size: 1.25em;
+			margin: 0 0 2em 0;
+			text-align: center;
+		}
+		.city-search div p {
+			margin: 5px 0 0 10px;
+			color: red;
+		}
+		span.temperature {
+			display: inline-block;
+			margin: 0 10px;
+			font-size: 4em;
+			font-weight: 100;
+		}
+		button, input[type=submit] {
+			margin: 0 10px;
+			background-color: rgb(146, 77, 163);
+	    color: yellow;
+	    padding: 5px 10px;
+	    border-radius: 4px;
+		}
+		input[type=text] {
+	    padding: 5px 10px;
+	    border-radius: 4px;
+	    border: 1px solid rgb(146, 77, 163);
 		}
 	}
 
 	.description {
 		width: 100%;
-	}
-
-	h1 {
-		font-size: 2em;
-		font-weight: 400;
-		text-align: center;
+		h1 {
+			font-size: 2em;
+			font-weight: 400;
+			text-align: center;
+		}
 	}
 
 	ul {

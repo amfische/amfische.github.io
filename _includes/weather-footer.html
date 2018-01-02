@@ -14,7 +14,8 @@
 			unit: 'farenheight',
 			icon: 'wi-na',
 			description: 'unavailable',
-			input: ''
+			input: '',
+			error: false
 		},
 		methods: {
 			farenheight() {
@@ -36,7 +37,11 @@
 					"&units=imperial"
 				axios.get(openWeatherMapURL)
 					.then((response) => {
+						this.error = false
 						this.displayResults(response)
+					})
+					.catch((error) => {
+						this.error = true
 					})
 			},
 			getLocalWeather() {
@@ -52,6 +57,7 @@
 						return axios.get(openWeatherMapURL)
 					})
 					.then((response) => {
+						this.error = false
 						this.displayResults(response)
 					})
 			},
@@ -59,6 +65,7 @@
 				this.city = response.data.name
 				this.country = response.data.sys.country
 				this.temp = response.data.main.temp
+				this.unit = 'farenheight'
 				this.setIcon(response.data.weather[0].icon)
 				this.description = response.data.weather[0].description
 			},
