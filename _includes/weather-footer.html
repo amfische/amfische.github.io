@@ -11,9 +11,34 @@
 			city: '',
 			country: '',
 			temp: 0,
-			icon: 'wi-day-sleet-storm'
+			unit: 'farenheight',
+			icon: 'wi-na',
+			description: 'unavailable',
+			input: ''
 		},
 		methods: {
+			farenheight() {
+				if (this.unit !== 'farenheight') {
+					this.temp = parseFloat((this.temp * 1.8 + 32).toFixed(2))
+					this.unit = 'farenheight'
+				}
+			},
+			celsius() {
+				if (this.unit !== 'celsius') {
+					this.temp = parseFloat(((this.temp - 32) / 1.8).toFixed(2))
+					this.unit = 'celsius'
+				}
+			},
+			searchWeatherByCity() {
+				let openWeatherMapURL = "http://api.openweathermap.org/data/2.5/weather" + 
+					"?q=" + this.input + 
+					"&appid=51f61b5f031e34a4e3c790f126690615" + 
+					"&units=imperial"
+				axios.get(openWeatherMapURL)
+					.then((response) => {
+						this.displayResults(response)
+					})
+			},
 			getLocalWeather() {
 				axios.get('http://ipinfo.io')
 					.then((response) => {
@@ -27,22 +52,67 @@
 						return axios.get(openWeatherMapURL)
 					})
 					.then((response) => {
-						console.log(response)
-						this.city = response.data.name
-						this.country = response.data.sys.country
-						this.temp = response.data.main.temp
-						this.setIcon(response.data.weather[0].icon)
+						this.displayResults(response)
 					})
 			},
+			displayResults(response) {
+				this.city = response.data.name
+				this.country = response.data.sys.country
+				this.temp = response.data.main.temp
+				this.setIcon(response.data.weather[0].icon)
+				this.description = response.data.weather[0].description
+			},
 			setIcon(icon) {
-				console.log(icon)
 				let _this = this
 				switch (icon) {
 					case '01d':
 						_this.icon = 'wi-day-sunny'
 						break
+					case '01n':
+						_this.icon = 'wi-night-clear'
+						break
+					case '02d':
+					case '03d':
+					case '04d':
+						_this.icon = 'wi-day-cloudy'
+						break
+					case '02n':
+					case '03n':
+					case '04n':
+						_this.icon = 'wi-night-alt-cloudy'
+						break	
+					case '09d':
+						_this.icon = 'wi-day-showers'
+						break
+					case '09n':
+						_this.icon = 'wi-night-alt-showers'
+						break
+					case '10d':
+						_this.icon = 'wi-day-rain'
+						break
+					case '10n':
+						_this.icon = 'wi-night-alt-rain'
+						break
+					case '11d':
+						_this.icon = 'wi-day-lightning'
+						break
+					case '11n':
+						_this.icon = 'wi-night-alt-thunderstorm'
+						break
+					case '13d':
+						_this.icon = 'wi-day-snow'
+						break
+					case '13n':
+						_this.icon = 'wi-night-alt-snow'
+						break
+					case '50d':
+						_this.icon = 'wi-day-fog'
+						break
+					case '50n':
+						_this.icon = 'wi-night-fog'
+						break
 					default:
-						_this.icon = 'wi-solar-eclipse'
+						_this.icon = 'wi-na'
 				}
 			}
 		},
@@ -51,34 +121,6 @@
 		}
 
 	})
-</script>
-<script>
-	$(document).ready(function() {
-
-	//function to gather users local weather information based off IP address
-	function getLocalWeather() {
-		//request to ipinfo.io for user location data
-		$.getJSON('http://ipinfo.io', function(data) {
-			let lat = data.loc.split(',')[0]
-			let lng = data.loc.split(',')[1]
-
-			//setting request URL for OpenWeatherMap with coordinates from user location(IP)
-			var openWeatherMapURL = "http://api.openweathermap.org/data/2.5/weather" + 
-				"?lat=" + lat + 
-				"&lon=" + lng + 
-				"&appid=51f61b5f031e34a4e3c790f126690615" + 
-				"&units=imperial"
-
-			$.getJSON(openWeatherMapURL, displayResults)
-		})
-	}
-
-	function displayResults(data) {
-		console.log(data, data.main.temp, data.name)
-	}
-	// getLocalWeather()
-	
-});
 </script>
 
 </body>
