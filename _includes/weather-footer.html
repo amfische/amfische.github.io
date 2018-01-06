@@ -45,7 +45,7 @@
 					})
 			},
 			getLocalWeather() {
-				axios.get('http://ipinfo.io')
+				axios.get('http://ipinfo.io') //switch to geolocation web api
 					.then((response) => {
 						let lat = response.data.loc.split(',')[0]
 						let lng = response.data.loc.split(',')[1]
@@ -126,10 +126,32 @@
 					default:
 						_this.icon = 'wi-na'
 				}
+			},
+			getUserLocation() {
+				return new Promise((resolve, reject) => {
+					navigator.geolocation.getCurrentPosition((e) => {
+						resolve(e.coords)
+					})
+				})
 			}
 		},
 		mounted() {
-			this.getLocalWeather()
+			// this.getLocalWeather()
+			if ("geolocation" in navigator) {
+				this.getUserLocation()
+					.then((e) => {
+						let openWeatherMapURL = "http://api.openweathermap.org/data/2.5/weather" + 
+							"?lat=" + e.latitude + 
+							"&lon=" + e.longitude + 
+							"&appid=51f61b5f031e34a4e3c790f126690615" + 
+							"&units=imperial"
+						return axios.get(openWeatherMapURL)
+					})
+					.then((response) => {
+						this.error = false
+						this.displayResults(response)
+					})
+			}
 		}
 
 	})
