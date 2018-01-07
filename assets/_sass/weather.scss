@@ -8,6 +8,7 @@
 	font-family: 'Jura', serif;
 
 	div.display {
+		margin-bottom: 3em;
 		h1 {
 			font-size: 3.5em;
 			font-weight: 800;
@@ -51,6 +52,14 @@
 	    padding: 5px 10px;
 	    border-radius: 4px;
 	  }
+	  div.options button:hover,
+	  div.city-search input[type=submit]:hover {
+	  	cursor: pointer;
+	  }
+	  div.options button:focus,
+	  div.city-search input[type=submit]:focus {
+			outline: 0;
+	  }
 	  div.city-search {
 	  	display: flex;
 	  	justify-content: center;
@@ -72,11 +81,10 @@
 		}
 		ul {
 			list-style: none;
-			text-align: center;
 			font-size: 18px;
 			padding: 0px;
 			li {
-				padding: 10px 5px;
+				padding-bottom: 20px;
 			}
 		}
 	}
@@ -93,15 +101,12 @@
 		margin-top: 0px;
 		width: 90%;
 		.display {
+			margin-bottom: 0;
 			width: 35vw;
 		}
 		.description {
 			width: 30vw;
 			h1 {
-				text-align: left;
-			}
-			ul { 
-				padding-left: 25px; 
 				text-align: left;
 			}
 		}

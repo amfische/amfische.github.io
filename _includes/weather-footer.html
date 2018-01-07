@@ -1,4 +1,3 @@
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
 <script src="https://use.fontawesome.com/d3c9e0b791.js"></script>
@@ -10,7 +9,7 @@
 		data: {
 			city: '-- --',
 			temp: 0,
-			unit: 'farenheight',
+			unit: 'F',
 			icon: 'wi-na',
 			iconDescription: '-- --',
 			input: '',
@@ -18,15 +17,15 @@
 		},
 		methods: {
 			farenheight() {
-				if (this.unit !== 'farenheight') {
+				if (this.unit !== 'F') {
 					this.temp = parseFloat((this.temp * 1.8 + 32).toFixed(2))
-					this.unit = 'farenheight'
+					this.unit = 'F'
 				}
 			},
 			celsius() {
-				if (this.unit !== 'celsius') {
+				if (this.unit !== 'C') {
 					this.temp = parseFloat(((this.temp - 32) / 1.8).toFixed(2))
-					this.unit = 'celsius'
+					this.unit = 'C'
 				}
 			},
 			getUserLocation() {
@@ -40,24 +39,30 @@
 			},
 			getLocalWeather() {
 				this.loading = true
-				this.getUserLocation()
-					.then((e) => {
-						let openWeatherMapURL = "http://api.openweathermap.org/data/2.5/weather" + 
-							"?lat=" + e.latitude + 
-							"&lon=" + e.longitude + 
-							"&appid=51f61b5f031e34a4e3c790f126690615" + 
-							"&units=imperial"
-						return axios.get(openWeatherMapURL)
-					})
-					.catch((error) => {
-						console.log('error', error)
-					})
-					.then((response) => {
-						this.displayResults(response)
-					})
-					.catch((error) => {
-						console.log('error', error)
-					})
+				if ("geolocation" in navigator) {
+					this.getUserLocation()
+						.then((e) => {
+							let openWeatherMapURL = "http://api.openweathermap.org/data/2.5/weather" + 
+								"?lat=" + e.latitude + 
+								"&lon=" + e.longitude + 
+								"&appid=51f61b5f031e34a4e3c790f126690615" + 
+								"&units=imperial"
+							return axios.get(openWeatherMapURL)
+						})
+						.then((response) => {
+							this.displayResults(response)
+						})
+						.catch((error) => {
+							if (typeof(error) === 'string') {
+								this.displayError(error)	
+							} else {
+								this.displayError(error.response.statusText)
+							}
+						})
+				} else {
+					let message = 'Geolocation not available in this browser, please try another browser or search by city'
+					this.displayError(message)
+				}	
 			},
 			searchWeatherByCity() {
 				this.loading = true
@@ -70,20 +75,23 @@
 						this.displayResults(response)
 					})
 					.catch((error) => {
-						this.loading = false
-						this.setIcon('n/a')
-						this.city = '-- --'
-						this.temp = 0
-						this.iconDescription = 'No results found'
+						this.displayError(error.response.data.message)
 					})
 			},
 			displayResults(response) {
 				this.loading = false
 				this.city = response.data.name + ', ' + response.data.sys.country
 				this.temp = response.data.main.temp
-				this.unit = 'farenheight'
+				this.unit = 'F'
 				this.setIcon(response.data.weather[0].icon)
 				this.iconDescription = response.data.weather[0].description
+			},
+			displayError(message) {
+				this.loading = false
+				this.city = '-- --'
+				this.temp = 0
+				this.setIcon('n/a')
+				this.iconDescription = message
 			},
 			setIcon(icon) {
 				let _this = this
@@ -140,15 +148,7 @@
 			}
 		},
 		mounted() {
-			if ("geolocation" in navigator) {
-				this.getLocalWeather()
-			} else {
-				this.loading = false
-				this.setIcon('n/a')
-				this.city = '-- --'
-				this.temp = 0
-				this.iconDescription = 'Geolocation not available in this browser, please try another browser or search by city'
-			}
+			this.getLocalWeather()
 		}
 
 	})
