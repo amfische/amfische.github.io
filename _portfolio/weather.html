@@ -7,9 +7,12 @@ collections: portfolio
 	<div id="weather">
 		
 		<div class="display">
-			<h1 v-text="city + ', ' + country"></h1>
-			<div class="icon">
+			<h1 v-text="city"></h1>
+			<div v-if="!loading" class="icon">
 				<i :class="['wi', icon]"></i>
+			</div>
+			<div v-if="loading" class="icon">
+				<i class="fa fa-spinner fa-spin"></i>
 			</div>
 			<div class="temperature">
 				<p v-text="temp + '&deg;'"></p>
@@ -21,10 +24,7 @@ collections: portfolio
 				<button @click="getLocalWeather">User Location</button>
 			</div>
 			<div class="city-search">
-				<div>
-					<input type="text" name="city" v-model="input" @keyup.enter="searchWeatherByCity">
-					<p v-show="error" v-text="'invalid entry'"></p>
-				</div>
+				<input type="text" name="city" v-model="input" @keyup.enter="searchWeatherByCity">
 				<input type="submit" value="Search" @click="searchWeatherByCity">
 			</div>
 		</div>

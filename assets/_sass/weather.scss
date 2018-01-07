@@ -19,7 +19,7 @@
 	  	align-items: center;
 	  	flex-direction: column;
 	  	margin: 0;
-	  	i.wi {
+	  	i {
 		  	margin: 0.25em 10px;
 				font-size: 10em;
 				color: rgb(146, 77, 163);
@@ -55,10 +55,6 @@
 	  	display: flex;
 	  	justify-content: center;
 	  	align-items: flex-start;
-	  	div p {
-	  		margin: 5px 0 0 10px;
-				color: red;	
-	  	}
 			input[type=text] {
 		    padding: 5px 10px;
 		    border-radius: 4px;
