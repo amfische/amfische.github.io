@@ -66,7 +66,6 @@ ui.blue_mouse_down = function() { $blue.style.backgroundColor = '#3232ff'; blue_
 ui.blue_mouse_up = function() {
 		$blue.style.backgroundColor = 'blue';
 		simon.player_pattern.push('blue');
-		console.log(simon.player_pattern);
 		simon.check_player_input();
 };
 
@@ -74,7 +73,6 @@ ui.red_mouse_down = function() { $red.style.backgroundColor = '#ff6666'; red_sou
 ui.red_mouse_up = function() {
 	$red.style.backgroundColor = 'red';
 	simon.player_pattern.push('red');
-	console.log(simon.player_pattern);
 	simon.check_player_input();
 };
 
@@ -82,7 +80,6 @@ ui.green_mouse_down = function() { $green.style.backgroundColor = '#4ca64c'; gre
 ui.green_mouse_up = function() {
 	$green.style.backgroundColor = 'green';
 	simon.player_pattern.push('green');
-	console.log(simon.player_pattern);
 	simon.check_player_input();
 };
 
@@ -90,6 +87,5 @@ ui.yellow_mouse_down = function() { $yellow.style.backgroundColor = '#ffff99'; y
 ui.yellow_mouse_up = function() {
 	$yellow.style.backgroundColor = 'yellow';
 	simon.player_pattern.push('yellow');
-	console.log(simon.player_pattern);
 	simon.check_player_input();
 };
