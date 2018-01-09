@@ -42,7 +42,7 @@
 				if ("geolocation" in navigator) {
 					this.getUserLocation()
 						.then((e) => {
-							let openWeatherMapURL = "http://api.openweathermap.org/data/2.5/weather" + 
+							let openWeatherMapURL = "https://api.openweathermap.org/data/2.5/weather" + 
 								"?lat=" + e.latitude + 
 								"&lon=" + e.longitude + 
 								"&appid=51f61b5f031e34a4e3c790f126690615" + 
@@ -66,7 +66,7 @@
 			},
 			searchWeatherByCity() {
 				this.loading = true
-				let openWeatherMapURL = "http://api.openweathermap.org/data/2.5/weather" + 
+				let openWeatherMapURL = "https://api.openweathermap.org/data/2.5/weather" + 
 					"?q=" + this.input + 
 					"&appid=51f61b5f031e34a4e3c790f126690615" + 
 					"&units=imperial"
