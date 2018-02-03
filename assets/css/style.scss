@@ -283,3 +283,13 @@ ul.links li a:active {
 
 }
 
+div#resume.modal {
+	min-height: 60vh;
+	min-width: 55vw;
+	embed {
+		height: 500px;
+		width: 100%;
+		padding: 10px;
+	}
+}
+
