@@ -14,12 +14,12 @@
 ****************************/
 * { box-sizing: border-box; }
 
-.center-block {
-	/* 58px is height of navbar */
+.main-content-block {
+	/* 53px is height of navbar */
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	min-height: calc(100vh - 58px);
+	min-height: calc(100vh - 53px);
 }
 
 .clearfix:after {
@@ -29,7 +29,7 @@
 }
 
 @media (min-width: 1441px) {
-	nav.navbar, #about, #portfolio {
+	#about, #portfolio {
 		max-width: 75vw;
 		margin: auto;
 	}
@@ -38,21 +38,11 @@
 /****************************
 				NAVIGATION
 ****************************/
-.nav-container {
-	border-bottom: 1px solid #000;
-}
 
 nav.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-	box-sizing: border-box;
-	position: sticky;
-	top: 0px;
-	background-color: #fff; 
-	z-index: 100;
+	border-bottom: 1px solid #000;	
 }
+
 div.social a {
   color: #000;
   display: inline-block;
@@ -81,9 +71,6 @@ ul.links li a:active {
   text-decoration: underline;
 }
 @media (min-width: 786px) {
-  nav.navbar { 
-		padding: 15px 10%;
-  }
   ul.links li { margin: 0px 15px; }
   ul.links li a { letter-spacing: 3px; }
 }
@@ -92,7 +79,7 @@ ul.links li a:active {
 				HOME PAGE
 ****************************/
 
-#home {
+#home-page {
 
 	h1 {
 		font-weight: 100;
@@ -135,14 +122,16 @@ ul.links li a:active {
 ****************************/
 
 #about {
+	h1 {
+		font-family: 'Josefin Slab', serif;
+		text-align: center;
+	  margin: 5px auto;
+	  font-size: 2em;
+	}
 
 	.description {
-		margin: 50px 10px;
-		h1 {
-			font-family: 'Josefin Slab', serif;
-			text-align: center;
-		  margin: 5px auto;
-		}
+		// margin: 50px 10px;
+
 		
 		img {
 			width: 100%;
@@ -164,11 +153,6 @@ ul.links li a:active {
 	}
 	.skills {
 		margin: 10px;
-		h1 {
-		  font-family: 'Josefin Slab', serif;
-		  text-align: center;
-		  margin: 5px auto;
-		}
 
 		.css-grid {
 			display: grid;
@@ -281,19 +265,5 @@ ul.links li a:active {
 		}
 	}
 
-}
-
-div#resume.modal {
-	min-height: 60vh;
-	min-width: 55vw;
-	embed {
-		height: 500px;
-		width: 100%;
-		border: 1px solid #000;
-	}
-}
-
-div.jquery-modal.blocker.current {
-	z-index: 100;
 }
 
