@@ -289,7 +289,11 @@ div#resume.modal {
 	embed {
 		height: 500px;
 		width: 100%;
-		padding: 10px;
+		border: 1px solid #000;
 	}
+}
+
+div.jquery-modal.blocker.current {
+	z-index: 100;
 }
 
