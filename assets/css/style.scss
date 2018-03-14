@@ -121,39 +121,54 @@ ul.links li a:active {
 				ABOUT PAGE
 ****************************/
 
-#about {
+.about-page {
 	h1 {
 		font-family: 'Josefin Slab', serif;
 		text-align: center;
-	  margin: 5px auto;
+	  margin: 15px auto;
 	  font-size: 2em;
 	}
-
-	.description {
-		// margin: 50px 10px;
-
-		
-		img {
-			width: 100%;
-			box-sizing: border-box;
-			display: block;
-			border: 1px solid black;
-		}
-
-		p {
-			font-family: 'Jura', sans-serif;
-			line-height: 2;
-			font-size: 1.15em;
-		}
-
-		a {
-			text-decoration: none;
-		}
-
+	p {
+		font-family: 'Jura', sans-serif;
+		line-height: 2;
+		font-size: 1.15em;
 	}
-	.skills {
-		margin: 10px;
+	.description{
+		.img-container {
+			width: 100%;
+			padding: 5%;
+			img {
+				width: 100%;
+				border: 1px solid black;
+			}
+		}
+		p {
+			padding: 0 5%;
+		}
+		@media (min-width: 769px) {
+			.img-container, p {
+				width: 75%;
+				margin: auto;
+				padding: 0;
+			}
+		}
+		@media (min-width: 1024px) {
+			h1 {
+				text-align: right;
+				margin: 2%;
+			}
+			.img-container, p {
+				width: 100%;
+			}
+			.column.is-4-desktop,
+			.column.is-8-desktop {
+				display: flex; // centers content
+			}
+		}
+	}
 
+	.skills {
+		margin: 10px auto;
 		.css-grid {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
@@ -161,7 +176,6 @@ ul.links li a:active {
 			grid-gap: 1em;
 			margin-bottom: 25px;
 		}
-		
 		.skill-item {
 			display: flex;
 			flex-direction: column;
@@ -175,75 +189,37 @@ ul.links li a:active {
 				height: 10em;
 			}
 		}
-
 		.skill-item p {
 			font-size: 1.35em;
 			margin: 15px 0px;
 			text-align: center;
 			font-family: 'Josefin Slab', serif;
 		}
+		@media (min-width: 769px) {
+			.css-grid {
+				grid-template-columns: repeat(3, 1fr);
+				grid-template-rows: repeat(2, 1fr);
+			}
+		}
+		@media (min-width: 1024px) {
+			margin: 50px auto;
+			h1 { 
+				text-align: left;
+				margin: 2% 0;
+			}
+		}
+		@media (min-width: 1216px) {
+			.css-grid {
+				grid-template-columns: repeat(5, 1fr);
+				grid-template-rows: initial;
+				margin-bottom: 25px;
+			}
+		}
 	
 	}
+}
 
-	@media (min-width: 768px) {
-		.description {
-			img {
-				width: 50%;
-				float: left;
-				margin: 15px 15px 0px 0px;
-			}
-		}
-		.skills .css-grid {
-			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: repeat(2, 1fr);
-		}
-
-	}
-
-	@media (min-width: 992px) {
-		.description {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			flex-wrap: wrap;
-			h1 { 
-				width: 90%; 
-				text-align: left;
-			}
-			img {
-				width: 30%;
-				order: 2;
-				margin: 0;
-				float: none;
-			}
-			p { width: 65%; }
-		}
-		.skills {
-			h1 { 
-				width: 90%;
-				text-align: left;
-			}
-		}
-	}
-
-	@media (min-width: 1200px) {
-		.description {
-			margin: 50px;
-			img { width: 28%; }
-			p { width: 68%; }
-		}
-
-		.skills {
-			margin: 50px;
-		}
-
-		.skills .css-grid {
-			grid-template-columns: repeat(5, 1fr);
-			grid-template-rows: initial;
-			margin-bottom: 25px;
-		}
-
-	}
+#about {
 	
 	/* need to test this media query at work */
 	@media (min-width: 1850px) {
