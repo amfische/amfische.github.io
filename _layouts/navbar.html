@@ -9,7 +9,6 @@
 
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css"> -->
   <link rel="stylesheet" href="/assets/css/weather-icons.min.css">
   <link rel="stylesheet" href="/assets/css/weather-icons-wind.min.css">
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -18,21 +17,6 @@
 </head>
 
 <body>
-
-<!--   <div class="nav-container">
-    <nav class="navbar">
-      <div class="social">
-        <a href="https://www.linkedin.com/in/amfische" target="_blank"><span class="fa fa-2x fa-linkedin-square" aria-hidden="true"></span></a>
-        <a href="https://github.com/amfische" target="_blank"><span class="fa fa-2x fa-github" aria-hidden="true"></span></a>
-      </div>
-      <ul class="links">
-        <li><a href="/">HOME</a></li>
-        <li><a href="/about">ABOUT</a></li>
-        <li><a href="/portfolio">PORTFOLIO</a></li>
-      </ul>
-    </nav>
-  </div> -->
-  
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="container">
       
@@ -41,8 +25,6 @@
           <a href="https://www.linkedin.com/in/amfische" target="_blank">
             <i class="fa fa-2x fa-linkedin-square" aria-hidden="true"></i>
           </a>
-        </div>
-        <div class="navbar-item">
           <a href="https://github.com/amfische" target="_blank">
             <i class="fa fa-2x fa-github" aria-hidden="true"></i>
           </a>
@@ -63,12 +45,14 @@
             <a href="/about">ABOUT</a>
           </div>
           <div class="navbar-item">
-            <a href="/portfolio">PORTFOLIO</a>
+            <a href="/projects">PROJECTS</a>
           </div>
         </div>
       </div>
 
     </div>
   </nav>
-    
-  {{ content }}  
+  
+  <div class="main-content-block">
+    {{ content }}  
+  </div>

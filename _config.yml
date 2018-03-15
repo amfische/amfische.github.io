@@ -9,15 +9,15 @@ twitter_username: amfische
 github_username:  amfische
 
 collections:
-  portfolio:
+  projects:
     output: true
 
 defaults:
 - scope:
-    type: portfolio
+    type: projects
   values:
     layout: navbar
-    permalink: "/portfolio/:title"
+    permalink: "/projects/:title"
 
 sass:
   sass_dir: assets/_sass

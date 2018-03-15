@@ -1,13 +1,16 @@
-#portfolio {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-content: center;
-	margin: 50px 15px;
-	div.project {
-		width: 90%;
-		margin: 30px 0px;
-
+.projects-page {
+	div.column {
+		margin-top: 48px;
+		h2 {
+			font-family: 'Josefin Slab', serif;
+			font-size: 2em;
+			text-align: center;
+			margin-top: 10px;
+		} 
+		p {
+			font-family: 'Jura', sans-serif;
+			text-align: center;
+		}
 		a.calculator {
 			display: flex;
 			justify-content: center;
@@ -89,41 +92,5 @@
 				font-size: 5em;
 			}
 		}
-
-		h2 {
-			font-family: 'Josefin Slab', serif;
-			font-size: 2em;
-			text-align: center;
-			margin: 10px 0px;
-		} 
-
-		p {
-			font-family: 'Jura', sans-serif;
-			text-align: center;
-			margin: 5px 0px;
-		}
-	}
-}
-
-@media (min-width: 769px) {
-	#portfolio div.project {
-		width: 65%;
-	}
-}
-
-@media (min-width: 992px) {
-	#portfolio {
-		justify-content: initial;
-	}
-	#portfolio div.project {
-		width: 40%;
-		margin: 30px 5%;
-	}
-}
-
-@media (min-width: 1200px) {
-	#portfolio div.project {
-		width: 30%;
-		margin: 30px 1.666666666%;
 	}
 }
