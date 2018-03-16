@@ -1,28 +1,35 @@
 ---
 title: calculator
-collections: portfolio
+collections: projects
 ---
 
-<div class="center-block">
-	<div id="calculator">
-		
-		<div class="display">
-			<input type="text" v-model="display" :class="{ 'error': error }" disabled="disabled">
-			<div class="buttons-grid">
-				<button v-for="btn in buttons" @click="btnAction" v-text="btn"></button>
-			</div>
-		</div>
-
-		<div class="description">
-			<h1>Vue.Js Calculator</h1>
-			<ul>
-				<li><i class="fa fa-angle-right"></i> A basic calculator built with Vue.js</li>
-				<li><i class="fa fa-angle-right"></i> Makes calculations with JavaScript's eval function</li>
-				<li><i class="fa fa-angle-right"></i> Buttons use CSS Grid Layout</li>
-			</ul>
-		</div>
-
-	</div> <!-- end #calculator -->
+<div class="container calculator-project">
+	<div class="columns is-multiline">
+		<div class="column is-offset-1-mobile is-10-mobile is-offset-2-tablet is-8-tablet is-offset-1-desktop is-5-desktop">
+			<div class="calculator">
+				<input type="text" v-model="input" :class="{ 'error': error }" disabled="disabled">
+				<div class="buttons-grid">
+					<button v-for="btn in buttons" @click="btnAction" v-text="btn"></button>
+				</div>
+			</div> <!-- end calculator -->
+		</div> <!-- end column -->
+		<div class="column is-offset-1-mobile is-10-mobile is-offset-2-tablet is-8-tablet is-offset-1-desktop is-5-desktop">
+			<div class="description">
+				<h1>Vue.Js Calculator</h1>
+				<ul>
+					<li><i class="fa fa-angle-right"></i> A basic calculator built with Vue.js</li>
+					<li><i class="fa fa-angle-right"></i> Makes calculations with JavaScript's eval function</li>
+					<li><i class="fa fa-angle-right"></i> Buttons use CSS Grid Layout</li>
+				</ul>
+			</div> <!-- end description -->
+		</div> <!-- end column -->
+	</div> <!-- end columns -->
 </div> <!-- end container -->
 
-{% include calculator-scripts.html %}
+{% include main-scripts.html %}
+
+<script type="text/javascript" src="/assets/js/calculator/app.js"></script>
+
+</body>
+</html>
+
