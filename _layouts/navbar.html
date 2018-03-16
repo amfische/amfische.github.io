@@ -20,7 +20,7 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="container">
       
-      <div class="navbar-brand" ref="navbrand">
+      <div class="navbar-brand">
         <div class="navbar-item">
           <a href="https://www.linkedin.com/in/amfische" target="_blank">
             <i class="fa fa-2x fa-linkedin-square" aria-hidden="true"></i>
@@ -35,8 +35,8 @@
           <span></span>
         </div>
       </div>
-
-      <div :class="{ 'navbar-menu' : true, 'is-active': isMobile }">
+      
+      <div :class="{ 'navbar-menu' : true, 'is-active': true }" ref="navmenu">
         <div class="navbar-end">
           <div class="navbar-item">
             <a href="/">HOME</a>
