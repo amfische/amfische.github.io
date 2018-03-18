@@ -1,5 +1,9 @@
 .calculator-project {
 	font-family: 'Boogaloo', cursive;
+	.columns .column {
+		margin-top: 45px;
+		margin-bottom: 45px;
+	}
 	.column.is-5-desktop {
 		display: flex;
 	}
@@ -9,8 +13,6 @@
 		background-color: #6ce82f;
 		border: 3px solid black;
 		border-radius: 5px;
-		margin-top: 45px;
-		margin-bottom: 45px;
 		input[type=text] {
 			box-sizing: border-box;
 			width: 100%;

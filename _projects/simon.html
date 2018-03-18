@@ -1,55 +1,59 @@
 ---
 title: simon game
-collections: portfolio
+collections: projects
 ---
 
-<div class="center-block">
-	<div id="simon">
+<div class="container simon">
+	<div class="columns is-multiline">
 
-		<div class="board">
-			<div class="buttons">
-				<div id="green"></div>
-				<div id="red"></div>
-				<div id="yellow"></div>
-				<div id="blue"></div>
-			</div>
-			<div class="controls">
-				<h1>Simon<sup>&reg;</sup></h1>
-				<div class="settings">
-					<div class="settings-col">
-						<input class="level-count" type="text" disabled value="00">
-						<p>Count</p>
+		<div class="column is-12-mobile is-offset-2-tablet is-8-tablet is-offset-1-desktop is-5-desktop">
+			<div class="board">
+				<div class="buttons">
+					<div class="green"></div>
+					<div class="red"></div>
+					<div class="yellow"></div>
+					<div class="blue"></div>
+				</div>
+				<div class="controls">
+					<h1>Simon<sup>&reg;</sup></h1>
+					<div class="settings">
+						<div class="settings-col">
+							<input class="level-count" type="text" disabled value="00">
+							<p>Count</p>
+						</div>
+						<div class="settings-col">
+							<button class="start"></button>
+							<p>Start</p>
+						</div>
+						<div class="settings-col">
+							<div class="strict-light"></div>
+							<button class="strict"></button>
+							<p>Strict</p>
+						</div>
 					</div>
-					<div class="settings-col">
-						<button class="start"></button>
-						<p>Start</p>
-					</div>
-					<div class="settings-col">
-						<div class="strict-light"></div>
-						<button class="strict"></button>
-						<p>Strict</p>
+					<div class="switch">
+					  <input type="checkbox" id="on-off">
+					  <label class="slider round" for="on-off"></label>
 					</div>
 				</div>
-				<div class="switch">
-				  <input type="checkbox" id="on-off">
-				  <label class="slider round" for="on-off"></label>
-				</div>
-			</div>
-		</div> <!-- end board -->
+			</div> <!-- end board -->
+		</div>
+	
+		<div class="column is-12-mobile is-offset-2-tablet is-8-tablet is-offset-1-desktop is-5-desktop">
+			<div class="description">
+				<ul class="fa-ul">
+					<li><i class="fa fa-li fa-angle-right"></i> A replica of the original 1970's game Simon.</li>
+					<li><i class="fa fa-li fa-angle-right"></i> Built with vanilla JavaScript and OOP principles</li>
+					<li><i class="fa fa-li fa-angle-right"></i> Uses flexbox for board layout</li>
+					<li><i class="fa fa-li fa-angle-right"></i> Player wins after successfully completing level 20</li>
+					<li><i class="fa fa-li fa-angle-right"></i> Strict mode causes the game to reset if any mistakes are made</li>
+					<li><i class="fa fa-li fa-angle-right"></i> Check out the git repository <a href="https://github.com/amfische/simon" target="_blank">here</a></li>
+				</ul>
+			</div> <!-- end description -->
+		</div>
 
-		<div class="description">
-			<ul class="fa-ul">
-				<li><i class="fa fa-li fa-angle-right"></i> A replica of the original 1970's game Simon.</li>
-				<li><i class="fa fa-li fa-angle-right"></i> Built with vanilla JavaScript and OOP principles</li>
-				<li><i class="fa fa-li fa-angle-right"></i> Uses flexbox for board layout</li>
-				<li><i class="fa fa-li fa-angle-right"></i> Player wins after successfully completing level 20</li>
-				<li><i class="fa fa-li fa-angle-right"></i> Strict mode causes the game to reset if any mistakes are made</li>
-				<li><i class="fa fa-li fa-angle-right"></i> Check out the git repository <a href="https://github.com/amfische/simon" target="_blank">here</a></li>
-			</ul>
-		</div> <!-- end description -->
-
-	</div> <!-- end #simon -->
-</div> <!-- end container -->
+	</div> <!-- end columns -->
+</div> <!-- end container simon -->
 
 {% include main-scripts.html %}
 {% include simon-scripts.html %}
