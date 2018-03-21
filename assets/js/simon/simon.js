@@ -1,118 +1,121 @@
 'use strict';
 
-var simon = {
+const simon = {
 	level: 0,
-	strict: false,
+	strictMode: false,
+	colors: ['green', 'red', 'yellow', 'blue'],
 	pattern: [],
-	player_pattern: [],
-	toggleStrictMode() {
-		this.strict = !this.strict
-		ui.toggleStrictMode(this.strict)
+	userPattern: [],
+	toggleStrictMode() { // is used as event handler so need to reference simon object
+		simon.strictMode = !simon.strictMode
+		ui.toggleStrictMode(simon.strictMode)
 	},
 	reset() {
-		console.log('resetting')
-		this.level = 0;
-		this.pattern = [];
-		this.player_pattern = [];
+		this.level = 0
+		this.pattern = []
+		this.userPattern = []
 		ui.reset()
 	},
-	start() {
-		console.log('starting')
-		this.reset()
-		this.next_level()
+	start() { // is used as event handler so need to reference simon object
+		simon.reset()
+		simon.setLevelAndPlay()
 	},
-	next_level() {
-		this.player_pattern = [];
-		this.random_color();
-		this.level++;
-		ui.update_count();
-		setTimeout(function() {
-			simon.play_pattern();
-		}, 1500);
-	},
-	random_color() {
-		//generate random color and apply to simon pattern array
-		var num = Math.floor(Math.random() * 4);
-		var colors = ['green', 'red', 'yellow', 'blue'];
-		this.pattern.push(colors[num]);
-	},
-	play_pattern() {
-		for (var i = 0; i < this.pattern.length; i++) {
-			//need to create closure around each iteration
-			(function(j) {
-				setTimeout(function() {
-					switch(simon.pattern[j]) {
-						case 'blue':
-							$blue.setOffColor()
-							$blue.enableAudio()
-							setTimeout(() => {
-								$blue.disableAudio()
-								$blue.setOriginalColor()
-							}, 500);
-							break;
-						case 'green':
-							$green.setOffColor()
-							$green.enableAudio()
-							setTimeout(() => {
-								$green.disableAudio()
-								$green.setOriginalColor()
-							}, 500);
-							break;
-						case 'yellow':
-							$yellow.setOffColor()
-							$yellow.enableAudio()
-							setTimeout(() => {
-								$yellow.disableAudio()
-								$yellow.setOriginalColor()
-							}, 500);
-							break;
-						case 'red':
-							$red.setOffColor()
-							$red.enableAudio()
-							setTimeout(() => {
-								$red.disableAudio()
-								$red.setOriginalColor()
-							}, 500);
-							break;
-					}
-				}, 1000 * j);
-			})(i);
-		}
-		setTimeout(function() {
-			controls.enableUserInput();
-		}, 1000 * simon.pattern.length);
-	},
-	check_player_input() {
-		controls.disableUserInput();
-		var pass_level = true;
-		for (var i = 0; i < this.player_pattern.length; i++) {
-			if (this.player_pattern[i] !== this.pattern[i]) {
-				pass_level = false;
-			}
-		}
-		if (!pass_level) {
-			ui.mistake();
-			if (!this.strict) {
-				setTimeout(function() {
-					ui.update_count();
-				}, 4000)
-				setTimeout(function() {
-					simon.player_pattern = [];
-					simon.play_pattern();
-				}, 5500);
-			} else {
-				setTimeout(function() {
-					simon.reset();
-				}, 4000);
-			}
-		} else if (pass_level && this.player_pattern.length === this.pattern.length && this.level === 20) {
-			ui.win();
-		} else if (pass_level && this.player_pattern.length === this.pattern.length) {
-			setTimeout(function() {
-				simon.next_level();
-			}, 500);
+	setLevelAndPlay(repeat = false) {
+		if (repeat) {
+			ui.parseLevel(this.level)
 		} else {
-			controls.enableUserInput();
+			ui.parseLevel(++this.level)
+			this.randomColor()
+		}
+		this.userPattern = []
+		setTimeout(() => { this.playPattern() }, 1500)
+	},
+	randomColor() {
+		let num = Math.floor(Math.random() * 4)
+		this.pattern.push(this.colors[num])
+	},
+	playPattern() {
+		let soundTime, intervalTime // higher levels will go faster
+		if (this.pattern.length <= 7) {
+			soundTime = 500
+			intervalTime = 1000
+		} else if (this.pattern.length <= 14) {
+			soundTime = 350
+			intervalTime = 700
+		} else {
+			soundTime = 250
+			intervalTime = 500
+		}
+		for (let i = 0; i < this.pattern.length; i++) {
+			//need to create closure around each iteration
+			//let creates locally scoped variable
+			setTimeout(function() {
+				switch(simon.pattern[i]) {
+					case 'blue':
+						$blue.setOffColor()
+						$blue.enableAudio()
+						setTimeout(() => {
+							$blue.disableAudio()
+							$blue.setOriginalColor()
+						}, soundTime);
+						break;
+					case 'green':
+						$green.setOffColor()
+						$green.enableAudio()
+						setTimeout(() => {
+							$green.disableAudio()
+							$green.setOriginalColor()
+						}, soundTime);
+						break;
+					case 'yellow':
+						$yellow.setOffColor()
+						$yellow.enableAudio()
+						setTimeout(() => {
+							$yellow.disableAudio()
+							$yellow.setOriginalColor()
+						}, soundTime);
+						break;
+					case 'red':
+						$red.setOffColor()
+						$red.enableAudio()
+						setTimeout(() => {
+							$red.disableAudio()
+							$red.setOriginalColor()
+						}, soundTime);
+						break;
+				}
+			}, intervalTime * i);
+
+		}
+		setTimeout(() => { controls.enableUserInput() }, intervalTime * simon.pattern.length)
+	},
+	checkInput() {
+		controls.disableUserInput()
+
+		let correctInput = this.userPattern.every((e,i) => e === this.pattern[i])
+
+		if (correctInput && this.userPattern.length === this.pattern.length && this.level === 20) {
+
+			ui.win()
+
+		} else if (correctInput && this.userPattern.length === this.pattern.length) {
+
+			setTimeout(() => { this.setLevelAndPlay() }, 500)
+
+		} else if (!correctInput) {
+
+			ui.mistake().then(() => {
+				if (this.strictMode) {
+					setTimeout(() => { this.reset() }, 2000)
+				} else {
+					setTimeout(() => { this.setLevelAndPlay(true) }, 2000)
+				}
+			})
+
+		} else {
+
+			controls.enableUserInput()
+
 		}
 	}
 }

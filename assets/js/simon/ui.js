@@ -4,43 +4,47 @@ var mistake = new Audio('/assets/sounds/buzz.mp3');
 var win = new Audio('/assets/sounds/ping.mp3');
 
 const ui = {
-	level: 0,
 	strictLight: document.querySelector('.strict-light'),
 	levelDisplay: document.querySelector('.level-count'), 
 	toggleStrictMode(isStrict) {
-		console.log('toggleStrictMode')
-		this.strictLight.style.backgroundColor = isStrict ? 'red' : 'white'
+		ui.strictLight.style.backgroundColor = isStrict ? 'red' : 'white'
 	},
-	update_count() {
-		this.level++
-		let str = this.level.toLocaleString('en-US', {minimumIntegerDigits: 2})
-		this.levelDisplay.setAttribute('value', str)
+	setLevelDisplay(str) {
+		ui.levelDisplay.setAttribute('value', str)
+	},
+	parseLevel(num) {
+		let str = num.toLocaleString('en-US', {minimumIntegerDigits: 2})
+		this.setLevelDisplay(str)
 	},
 	reset() {
-		this.level = 0
-		this.levelDisplay.setAttribute('value', '00')
+		this.setLevelDisplay('00')
 	},
 	mistake() {
-		this.levelDisplay.setAttribute('value', '!!!');
-		mistake.volume = 0.1;
-		mistake.play();
-		var flash_error = setInterval(function() {
-			this.levelDisplay.setAttribute('value', this.levelDisplay.getAttribute('value') === '!!!' ? " " : "!!!"); 
-		}, 400);
-		setTimeout(function() {
-			clearInterval(flash_error);
-		}, 2800);
+		mistake.volume = 0.1
+		mistake.play()
+
+		return new Promise((resolve, reject) => {
+			// flash error symbol
+			for (let i = 0; i < 6; i++) {
+				setTimeout(() => {
+					let str = i % 2 === 0 ? '' : '!!!'
+					ui.setLevelDisplay(str)
+					if (i === 5) resolve()
+				}, i * 500)
+			}
+		})
 	},
 	win() {
-		this.levelDisplay.setAttribute('value', 'WIN');
-		win.volume = 0.1;
-		win.play();
-		var flash_win = setInterval(function() {
-			this.levelDisplay.setAttribute('value', this.levelDisplay.getAttribute('value') === 'WIN' ? " " : "WIN"); 
-		}, 400);
-		setTimeout(function() {
-			clearInterval(flash_win);
-		}, 2800);
+		win.volume = 0.1
+		win.play()
+
+		// flash win message
+		for (let i = 0; i < 6; i++) {
+			setTimeout(function() {
+				let str = i % 2 === 0 ? '' : 'WIN'
+				ui.setLevelDisplay(str)
+			}, i * 500)
+		}
 	}
 }
 

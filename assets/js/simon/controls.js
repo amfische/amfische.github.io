@@ -13,7 +13,6 @@ const controls = {
 	strictBtn: document.querySelector('.strict'),
 	init() {
 		this.powerSwitch.addEventListener('click', () => {
-			console.log(this)
 			if (this.powerSwitch.checked) {
 				this.enableSettings()
 			} else {
@@ -23,26 +22,24 @@ const controls = {
 		})
 	},
 	enableSettings() {
-		this.startBtn.addEventListener('click', simon.start.bind(simon), false)
-		this.strictBtn.addEventListener('click', simon.toggleStrictMode.bind(simon), false)
+		this.startBtn.addEventListener('click', simon.start)
+		this.strictBtn.addEventListener('click', simon.toggleStrictMode)
 		this.startBtn.style.cursor = 'pointer'
 		this.strictBtn.style.cursor = 'pointer'
 	},
 	disableSettings() {
-		this.startBtn.removeEventListener('click', simon.start.bind(simon), false)
-		this.strictBtn.removeEventListener('click', simon.toggleStrictMode.bind(simon), false)
+		this.startBtn.removeEventListener('click', simon.start)
+		this.strictBtn.removeEventListener('click', simon.toggleStrictMode)
 		this.startBtn.style.cursor = 'initial'
 		this.strictBtn.style.cursor = 'initial'
 	},
 	enableUserInput() {
-		console.log('enableUserInput')
 		$green.enable()
 		$red.enable()
 		$yellow.enable()
 		$blue.enable()
 	},
 	disableUserInput() {
-		console.log('disableUserInput')
 		$green.disable()
 		$red.disable()
 		$yellow.disable()
