@@ -1,38 +1,47 @@
-#tictactoe {
-	padding: 10px;
-	margin: 50px 0px;
-}
-
-#tictactoe .display {
-	margin-bottom: 100px;
-
-	#board {
-		display: grid;
-		grid-gap: .15em;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: repeat(3, 1fr);
-		height: 400px;
-		margin-bottom: 50px;
-		.space {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			font-size: 4em;
-			background-color: #6666ff;
-			color: yellow;
-			&:hover {
-				cursor: pointer;
+.tictactoe {
+	.columns .column {
+		display: flex;
+		margin-top: 75px;
+	}
+	.display {
+		margin: auto;
+		width: 100%;
+	}
+	.board-container {
+		height: 0;
+		width: 100%;
+		padding-bottom: 100%;
+		position: relative;
+		.board {
+			display: grid;
+			grid-gap: .15em;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			.space {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 4em;
+				background-color: #6666ff;
 				color: yellow;
+				&:hover {
+					cursor: pointer;
+					color: yellow;
+				}
 			}
 		}
+		.zero, .two, .four, .six, .eight { color: #4666FF; }
+		.one, .three, .five, .seven, .nine { color: #C2FF46; }
 	}
-	.zero, .two, .four, .six, .eight { color: #4666FF; }
-	.one, .three, .five, .seven, .nine { color: #C2FF46; }
 
-	#controls {
+	.controls {
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
+		margin-top: 25px;
 
 		h3 {
 			margin: 0px;
@@ -95,111 +104,30 @@
 	}
 }
 
-#tictactoe .description {
-
+.tictactoe .description {
 	h1 {
 		margin-top: 1.15em;
 		margin-bottom: .25em;
-		text-align: center;
 		font-weight: 100;
 		font-family: 'Josefin Slab', serif;
+		font-size: 24px;
 	}
-
 	ul {
 		list-style: none;
-		padding: 0px;
-		text-align: center;
 	}
-
 	li {
-		padding-bottom: 15px;
+		padding-bottom: 10px;
 		font-size: 18px;
     font-family: 'Jura', sans-serif;
     font-weight: 400;
 	}
-
-	.fa-ul {
-		margin-left: 0px;
-	}
-
-	.fa-li {
-		position: initial;
-	}
-
-	/*li:before {
-		content: '\f105';
-		font-family: FontAwesome;
-		display: inline-block;
-		margin-left: -1em;
-		width: 1em;
-	}*/
-
-}
-
-@media (min-width: 768px) {
-	#tictactoe .display {
-		#board {
-			width: 450px;
-			height: 450px;
-			margin: auto;
-		}
-		#controls {
-			width: 400px;
-			margin: 25px auto;
-		}
-	}
-
-}
-
-@media (min-width: 1200px) {
-	#tictactoe {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		margin: 0px;
-	}
-
-	#tictactoe .display { 
-		margin: 0px; 
-		#board { margin: 50px auto; }
-	}
-
-	#tictactoe .description {
-		width: 45%;
-		h1 { text-align: left; }
-		ul { text-align: left; }
-		.fa-ul { margin-left: 2.14285714em; }
-		.fa-li { position: absolute; }
-	}
-
-}
-
-/* need to test at work */
-@media (min-width: 1650px) {
-	#tictactoe .display { 
-		
-		#board {
-			width: 725px;
-			height: 725px;
-		}
-
-		#controls h3,
-		#controls button {
-			font-size: 1.75em;
-		}
-
-		#controls .symbols label {
-			align-items: center;
-		}
-
-		#controls .symbols span {
-			font-size: 1.33em;
-		}
+	li i {
+		padding-right: 7.5px
 	}
 }
 
-
-
-
-
-
+@media (min-width: 1024px) {
+	.tictactoe .columns .column {
+		margin-top: 0;
+	}
+}
