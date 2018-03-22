@@ -1,46 +1,51 @@
 ---
 title: weather
-collections: portfolio
+collections: projects
 ---
 
-<div class="center-block">
-	<div id="weather">
-		
-		<div class="display">
-			<h1 v-text="city"></h1>
-			<div v-if="!loading" class="icon">
-				<i :class="['wi', icon]"></i>
-			</div>
-			<div v-if="loading" class="icon">
-				<i class="fa fa-spinner fa-spin"></i>
-			</div>
-			<div class="temperature">
-				<p v-text="temp + ' &deg;' + unit"></p>
-				<p v-text="iconDescription"></p>
-			</div>
-			<div class="options">
-				<button @click="farenheight">Farenheight</button>
-				<button @click="celsius">Celsius</button>
-				<button @click="getLocalWeather">User Location</button>
-			</div>
-			<div class="city-search">
-				<input type="text" name="city" v-model="input" @keyup.enter="searchWeatherByCity">
-				<input type="submit" value="Search" @click="searchWeatherByCity">
+
+<div class="container weather">
+	<div class="columns is-multiline">
+
+		<div class="column is-12-mobile is-offset-2-tablet is-8-tablet is-offset-1-desktop is-5-desktop">	
+			<div class="display">
+				<h1 v-text="city"></h1>
+				<div v-if="!loading" class="icon">
+					<i :class="['wi', icon]"></i>
+				</div>
+				<div v-if="loading" class="icon">
+					<i class="fa fa-spinner fa-spin"></i>
+				</div>
+				<div class="temperature">
+					<p v-text="temp + ' &deg;' + unit"></p>
+					<p v-text="iconDescription"></p>
+				</div>
+				<div class="options">
+					<button @click="farenheight">Farenheight</button>
+					<button @click="celsius">Celsius</button>
+					<button @click="getLocalWeather">User Location</button>
+				</div>
+				<div class="city-search">
+					<input type="text" name="city" v-model="input" @keyup.enter="searchWeatherByCity">
+					<input type="submit" value="Search" @click="searchWeatherByCity">
+				</div>
 			</div>
 		</div>
 
-		<div class="description">
-			<h1>Weather Application</h1>
-			<ul class="fa-ul">
-				<li><i class="fa fa-li fa-angle-right"></i> Uses OpenWeatherMap API to get up-to-date weather information</li>
-				<li><i class="fa fa-li fa-angle-right"></i> Users location is determined by IP address</li>
-				<li><i class="fa fa-li fa-angle-right"></i> Search requires a city and/or country</li>
-				<li><i class="fa fa-li fa-angle-right"></i> Check out the <a href="https://github.com/amfische/vue-weatherapp" target="_blank">Git repository</a></li>
-			</ul>
+		<div class="column is-12-mobile is-offset-2-tablet is-8-tablet is-offset-1-desktop is-5-desktop">
+			<div class="description">
+				<h1>Weather Application</h1>
+				<ul class="fa-ul">
+					<li><i class="fa fa-li fa-angle-right"></i> Uses OpenWeatherMap API to get up-to-date weather information</li>
+					<li><i class="fa fa-li fa-angle-right"></i> Users location is determined by IP address</li>
+					<li><i class="fa fa-li fa-angle-right"></i> Search requires a city and/or country</li>
+					<li><i class="fa fa-li fa-angle-right"></i> Check out the <a href="https://github.com/amfische/vue-weatherapp" target="_blank">Git repository</a></li>
+				</ul>
+			</div>
 		</div>
 
-	</div> <!-- end #calculator -->
-</div> <!-- end container -->
+	</div> <!-- end columns -->
+</div> <!-- end .weather -->
 
 {% include main-scripts.html %}
 {% include weather-scripts.html %}
