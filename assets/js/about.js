@@ -1,11 +1,16 @@
 new Vue({
 	el: '.about-page',
+	data: {
+		showModal: false
+	},
 	methods: {
 		showResume() {
-			this.$refs.modal.classList.add('is-active')
+			this.showModal = true
+			document.documentElement.classList.add('overflow-hidden')
 		},
 		close() {
-			this.$refs.modal.classList.remove('is-active')
+			this.showModal = false
+			document.documentElement.classList.remove('overflow-hidden')
 		}
 	}
 })

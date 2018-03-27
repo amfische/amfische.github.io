@@ -1,12 +1,9 @@
-<div class="modal" ref="modal">
-  <div class="modal-background" @click="close"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <h1 class="modal-card-title">Resume - CV</h1>
-      <button class="delete" aria-label="close" @click="close"></button>
-    </header>
-    <section class="modal-card-body">
+<transition name="modal">
+  <div class="modal is-active" v-show="showModal">
+    <div class="modal-background" @click="close"></div>
+    <div class="modal-content">
       <embed src="/assets/resume.pdf" type="application/pdf">
-    </section>
+    </div>
+    <button class="modal-close is-large" aria-label="close" @click="close"></button>
   </div>
-</div>
+</transition>

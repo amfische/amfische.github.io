@@ -27,12 +27,7 @@
 	width: 90vw;
 }
 
-@media (min-width: 1441px) {
-	#about, #portfolio {
-		max-width: 75vw;
-		margin: auto;
-	}
-}
+.overflow-hidden { overflow: hidden; }
 
 /****************************
 				NAVIGATION
@@ -166,19 +161,39 @@ nav.navbar {
 			}
 			.column.is-4-desktop,
 			.column.is-8-desktop {
-				display: flex; // centers content
+				display: flex; /* centers content */
 			}
 		}
 	}
 
 	.modal {
+		transition: all .75s ease;
 		h1 { 
 			text-align: center;
+			margin: 0;
 		}
-		.modal-card-body embed {
+		.modal-content {
+			transition: all .75s ease;
+		}
+		.modal-content embed {
 			width: 100%;
 			height: 500px;
 		}
+		@media (min-width: 1216px) {
+			.modal-content {
+				width: 824px;
+			}
+		}
+	}
+
+	.modal-enter,
+	.modal-leave-active {
+	  opacity: 0;
+	}
+	.modal-enter .modal-content,
+	.modal-leave-active .modal-content {
+		-webkit-transform: translateY(-200px);
+	  transform: translateY(-200px);
 	}
 
 	.skills {
@@ -232,28 +247,3 @@ nav.navbar {
 	
 	}
 }
-
-#about {
-	
-	/* need to test this media query at work */
-	@media (min-width: 1850px) {
-		max-width: 70vw;
-
-		.description {
-			h1 { font-size: 2em; }
-			p { font-size: 1.5em; }
-		}
-
-		.skills {
-			h1 { font-size: 2em; }
-			.skill-item {
-				padding: 50px;
-			}
-			.skill-item p {
-				font-size: 2em;	
-			}
-		}
-	}
-
-}
-
