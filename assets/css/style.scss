@@ -167,7 +167,6 @@ nav.navbar {
 	}
 
 	.modal {
-		transition: all .75s ease;
 		h1 { 
 			text-align: center;
 			margin: 0;
@@ -194,6 +193,13 @@ nav.navbar {
 	.modal-leave-active .modal-content {
 		-webkit-transform: translateY(-200px);
 	  transform: translateY(-200px);
+	}
+	.modal-enter-active {
+		transition: transform 1.25s ease;
+		transition: opacity .75s ease;
+	}
+	.modal-leave-active {
+		transition: all .75s ease;
 	}
 
 	.skills {
