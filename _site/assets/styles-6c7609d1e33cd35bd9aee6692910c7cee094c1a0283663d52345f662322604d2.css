@@ -1,0 +1,666 @@
+@import url("https://fonts.googleapis.com/css?family=Boogaloo|Jura|Josefin+Slab:700");
+.projects-page div.column {
+  margin-top: 48px; }
+  .projects-page div.column h2 {
+    font-family: 'Josefin Slab', serif;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 10px; }
+  .projects-page div.column p {
+    font-family: 'Jura', sans-serif;
+    text-align: center; }
+  .projects-page div.column a.calculator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 226px;
+    text-decoration: none;
+    background-color: #6ce82f; }
+    .projects-page div.column a.calculator span {
+      font-family: 'Boogaloo', cursive;
+      font-size: 4em;
+      color: black; }
+  .projects-page div.column a.simon {
+    display: grid;
+    grid-template-columns: calc(50% - .5em) calc(50% - .5em);
+    grid-template-rows: 105px 105px;
+    grid-gap: 1em;
+    background-color: #323232; }
+    .projects-page div.column a.simon .blue {
+      background-color: blue; }
+    .projects-page div.column a.simon .yellow {
+      background-color: yellow; }
+    .projects-page div.column a.simon .red {
+      background-color: red; }
+    .projects-page div.column a.simon .green {
+      background-color: green; }
+    .projects-page div.column a.simon:hover {
+      cursor: pointer; }
+  .projects-page div.column a.tictactoe {
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+    grid-column-gap: 2%;
+    grid-template-rows: 226px;
+    text-decoration: none;
+    background-color: #fff; }
+    .projects-page div.column a.tictactoe div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 4em;
+      background-color: #6666ff;
+      color: yellow; }
+  .projects-page div.column a.timesheet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 226px;
+    text-decoration: none;
+    background-color: #1f1955; }
+    .projects-page div.column a.timesheet span {
+      color: #f47b20;
+      border-bottom: 5px solid; }
+  .projects-page div.column a.weather {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 226px;
+    text-decoration: none;
+    background-color: purple;
+    color: yellow; }
+    .projects-page div.column a.weather div {
+      margin: 0 10px; }
+    .projects-page div.column a.weather div.icons {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+    .projects-page div.column a.weather div.temp {
+      font-size: 5em; }
+
+.simon {
+  /* end .board */ }
+  .simon .columns .column {
+    display: flex;
+    margin-top: 45px;
+    margin-bottom: 45px; }
+  .simon .board {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+    border-radius: 50%;
+    background-color: #323232;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* The slider */
+    /* Rounded sliders */ }
+    .simon .board .buttons {
+      width: 95%;
+      height: 95%;
+      position: absolute;
+      top: 2.5%;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap; }
+    .simon .board .green, .simon .board .red,
+    .simon .board .yellow, .simon .board .blue {
+      height: 45%;
+      width: 45%;
+      margin: auto; }
+    .simon .board .green {
+      background-color: green;
+      border-top-left-radius: 100%; }
+    .simon .board .red {
+      background-color: red;
+      border-top-right-radius: 100%; }
+    .simon .board .yellow {
+      background-color: yellow;
+      border-bottom-left-radius: 100%; }
+    .simon .board .blue {
+      background-color: blue;
+      border-bottom-right-radius: 100%; }
+    .simon .board .controls {
+      height: 55%;
+      width: 55%;
+      position: absolute;
+      top: 22.5%;
+      background-color: white;
+      border-radius: 50%;
+      border: 12px solid #323232;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+    .simon .board h1 {
+      text-align: center;
+      margin: 0;
+      font-size: 20px;
+      font-weight: 900; }
+      .simon .board h1 sup {
+        font-size: 16px;
+        top: -0.5em; }
+    .simon .board .settings {
+      text-align: center;
+      margin: 10% auto; }
+      .simon .board .settings .settings-col {
+        display: inline-block;
+        width: 28%; }
+        .simon .board .settings .settings-col p {
+          font-size: 12px; }
+        .simon .board .settings .settings-col button {
+          border-radius: 50%;
+          border: 2px solid #323232;
+          height: 15px;
+          width: 15px;
+          outline: none;
+          margin-bottom: 5px; }
+        .simon .board .settings .settings-col input.level-count {
+          line-height: 1;
+          width: 100%;
+          text-align: center;
+          background-color: black;
+          border: none;
+          color: red;
+          border-radius: 11%;
+          font-size: 17px;
+          padding: 5px; }
+        .simon .board .settings .settings-col button.start {
+          background-color: red; }
+        .simon .board .settings .settings-col button.strict {
+          background-color: yellow; }
+        .simon .board .settings .settings-col .strict-light {
+          border-radius: 50%;
+          border: 1px solid #323232;
+          height: 5px;
+          width: 5px;
+          margin: 0 auto; }
+    .simon .board .switch {
+      width: 40px;
+      height: 22px;
+      position: relative;
+      /* Hide default HTML checkbox */ }
+      .simon .board .switch input {
+        display: none; }
+    .simon .board .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s; }
+    .simon .board .slider:before {
+      position: absolute;
+      content: "";
+      height: 17px;
+      width: 17px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s; }
+    .simon .board .slider.round {
+      border-radius: 34px; }
+    .simon .board .slider.round:before {
+      border-radius: 50%; }
+    .simon .board .switch input:checked + .slider {
+      background-color: #2196F3; }
+    .simon .board .switch input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3; }
+    .simon .board .switch input:checked + .slider:before {
+      -webkit-transform: translateX(16px);
+      transform: translateX(16px); }
+  .simon .description {
+    margin: auto; }
+    .simon .description ul {
+      list-style: none; }
+    .simon .description li {
+      padding-bottom: 10px;
+      font-size: 18px;
+      font-family: 'Jura', sans-serif;
+      font-weight: 400; }
+    .simon .description li i {
+      padding-right: 7.5px; }
+  @media (min-width: 576px) {
+    .simon .board .controls {
+      width: 50%;
+      height: 50%;
+      top: 25%;
+      border: 1em solid #323232; }
+    .simon .board h1 {
+      font-size: 32px; }
+    .simon .board .settings .settings-col button {
+      height: 20px;
+      width: 20px; }
+    .simon .board .settings .settings-col input.level-count {
+      font-size: 21px; }
+    .simon .board .settings .settings-col .strict-light {
+      margin: 0 auto 5px auto; } }
+  @media (min-width: 1024px) and (max-width: 1215px) {
+    .simon .board .controls {
+      width: 55%;
+      height: 55%;
+      top: 22.5%;
+      border: .75em solid #323232; } }
+
+/* end .simon */
+.tictactoe .columns .column {
+  display: flex;
+  margin-top: 75px; }
+.tictactoe .display {
+  margin: auto;
+  width: 100%; }
+.tictactoe .board-container {
+  height: 0;
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative; }
+  .tictactoe .board-container .board {
+    display: grid;
+    grid-gap: .15em;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 100%;
+    width: 100%;
+    position: absolute; }
+    .tictactoe .board-container .board .space {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 4em;
+      background-color: #6666ff;
+      color: yellow; }
+      .tictactoe .board-container .board .space:hover {
+        cursor: pointer;
+        color: yellow; }
+  .tictactoe .board-container .zero, .tictactoe .board-container .two, .tictactoe .board-container .four, .tictactoe .board-container .six, .tictactoe .board-container .eight {
+    color: #4666FF; }
+  .tictactoe .board-container .one, .tictactoe .board-container .three, .tictactoe .board-container .five, .tictactoe .board-container .seven, .tictactoe .board-container .nine {
+    color: #C2FF46; }
+.tictactoe .controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 25px; }
+  .tictactoe .controls h3 {
+    margin: 0px;
+    font-size: 1.5em;
+    font-family: 'Josefin Slab', serif; }
+  .tictactoe .controls label.radio-btn {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* When the radio button is checked, add a blue background */
+    /* Show the indicator (dot/circle) when checked */ }
+    .tictactoe .controls label.radio-btn input {
+      position: absolute;
+      opacity: 0; }
+    .tictactoe .controls label.radio-btn span.checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+      border-radius: 50%; }
+    .tictactoe .controls label.radio-btn span.checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+      top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      background: yellow; }
+    .tictactoe .controls label.radio-btn input:checked ~ .checkmark {
+      background-color: #6666ff; }
+    .tictactoe .controls label.radio-btn input:checked ~ .checkmark:after {
+      display: block; }
+  .tictactoe .controls button {
+    padding: 5px 10px;
+    background-color: #fff;
+    border: 1px solid black;
+    font-family: 'Jura', sans-serif; }
+    .tictactoe .controls button:hover {
+      cursor: pointer; }
+    .tictactoe .controls button:focus {
+      outline: 0; }
+
+.tictactoe .description h1 {
+  margin-top: 1.15em;
+  margin-bottom: .25em;
+  font-weight: 100;
+  font-family: 'Josefin Slab', serif;
+  font-size: 24px; }
+.tictactoe .description ul {
+  list-style: none; }
+.tictactoe .description li {
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-family: 'Jura', sans-serif;
+  font-weight: 400; }
+.tictactoe .description li i {
+  padding-right: 7.5px; }
+
+@media (min-width: 1024px) {
+  .tictactoe .columns .column {
+    margin-top: 0; } }
+.calculator-project {
+  font-family: 'Boogaloo', cursive; }
+  .calculator-project .columns .column {
+    margin-top: 45px;
+    margin-bottom: 45px; }
+  .calculator-project .column.is-5-desktop {
+    display: flex; }
+  .calculator-project .calculator {
+    width: 100%;
+    padding: 15px 15px 30px;
+    background-color: #6ce82f;
+    border: 3px solid black;
+    border-radius: 5px; }
+    .calculator-project .calculator input[type=text] {
+      box-sizing: border-box;
+      width: 100%;
+      margin: 1em auto;
+      text-align: right;
+      padding: 15px;
+      font-size: 1.5em;
+      border: 1px solid #000; }
+      .calculator-project .calculator input[type=text].error {
+        text-align: center;
+        color: red; }
+    .calculator-project .calculator .buttons-grid {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(5, 3.5em);
+      grid-gap: 1em; }
+      .calculator-project .calculator .buttons-grid button {
+        background-color: #c6c6c6;
+        border: 1px solid #000;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 2em; }
+        .calculator-project .calculator .buttons-grid button:hover {
+          background-color: #e1d3c1;
+          border: 1px solid black; }
+    @media (min-width: 1024px) {
+      .calculator-project .calculator {
+        margin: 0; } }
+  .calculator-project .description {
+    margin: auto; }
+    .calculator-project .description h1 {
+      font-size: 2em;
+      font-weight: 400;
+      font-family: 'Jura', sans-serif; }
+    .calculator-project .description ul {
+      font-family: 'Jura', sans-serif;
+      list-style: none;
+      font-size: 18px; }
+      .calculator-project .description ul li {
+        padding: 10px 5px; }
+
+.weather {
+  font-family: 'Jura', serif; }
+  .weather .columns .column {
+    display: flex; }
+  .weather div.display {
+    margin: 3em auto; }
+    .weather div.display h1 {
+      font-size: 3.5em;
+      font-weight: 800;
+      text-align: center;
+      margin-top: 0; }
+    .weather div.display div.icon {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin: 0;
+      width: 100%;
+      height: auto; }
+      .weather div.display div.icon i {
+        margin: 0.25em 10px;
+        font-size: 10em;
+        color: #924da3; }
+    .weather div.display div.temperature {
+      text-align: center; }
+      .weather div.display div.temperature p:first-child {
+        margin: 0 10px;
+        font-size: 4em;
+        font-weight: 100; }
+      .weather div.display div.temperature p:last-child {
+        font-size: 1.25em;
+        margin: 0; }
+    .weather div.display div.options {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      margin-bottom: 20px; }
+    .weather div.display div.options button,
+    .weather div.display div.city-search input[type=submit] {
+      margin: 0 10px;
+      background-color: #924da3;
+      color: yellow;
+      padding: 5px 10px;
+      border-radius: 4px; }
+    .weather div.display div.options button:hover,
+    .weather div.display div.city-search input[type=submit]:hover {
+      cursor: pointer; }
+    .weather div.display div.options button:focus,
+    .weather div.display div.city-search input[type=submit]:focus {
+      outline: 0; }
+    .weather div.display div.city-search {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; }
+      .weather div.display div.city-search input[type=text] {
+        padding: 5px 10px;
+        border-radius: 4px;
+        border: 1px solid #924da3; }
+  .weather .description {
+    margin: auto; }
+    .weather .description h1 {
+      font-size: 2em;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 1em; }
+    .weather .description ul {
+      list-style: none; }
+    .weather .description li {
+      font-size: 18px;
+      font-family: 'Jura', sans-serif;
+      font-weight: 400;
+      padding-bottom: 20px; }
+    .weather .description li i {
+      padding-right: 7.5px; }
+
+/****************************
+		GENERAL STYLES
+****************************/
+* {
+  box-sizing: border-box; }
+
+.main-content-block {
+  /* 53px is height of navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 53px); }
+
+.container {
+  width: 90vw; }
+
+.overflow-hidden {
+  overflow: hidden; }
+
+/****************************
+				NAVIGATION
+****************************/
+nav.navbar {
+  border-bottom: 1px solid #000;
+  /* slide down effect on mobile */ }
+  nav.navbar .navbar-brand .navbar-item a {
+    color: #000;
+    padding: 0 7.5px;
+    font-size: 0.85em; }
+    nav.navbar .navbar-brand .navbar-item a:hover {
+      color: #c6c6c6; }
+  @media (min-width: 1024px) {
+    nav.navbar .navbar-menu .navbar-end .navbar-item:hover {
+      border-bottom: 3px solid #c6c6c6; } }
+  nav.navbar .navbar-menu .navbar-end .navbar-item a {
+    font-size: 12px;
+    color: #000; }
+    nav.navbar .navbar-menu .navbar-end .navbar-item a:hover {
+      color: #c6c6c6; }
+    @media (min-width: 769px) {
+      nav.navbar .navbar-menu .navbar-end .navbar-item a {
+        letter-spacing: 3px; } }
+  @media (max-width: 1023px) {
+    nav.navbar .navbar-brand {
+      position: relative;
+      z-index: 2;
+      background-color: #fff;
+      border-bottom: 1px solid black; }
+    nav.navbar .navbar-menu.is-active {
+      position: relative;
+      z-index: 1;
+      margin-top: -200px;
+      transition: all 0.5s ease; } }
+
+/****************************
+				HOME PAGE
+****************************/
+.home-page h1 {
+  font-weight: 100;
+  text-align: center;
+  font-size: 6em;
+  margin: 0px auto 15px;
+  font-family: 'Josefin Slab', serif; }
+.home-page h2 {
+  font-weight: 100;
+  text-align: center;
+  margin: 0px;
+  font-size: 2.5em;
+  font-family: 'Jura', sans-serif; }
+.home-page .display-line {
+  width: 90%;
+  margin: auto;
+  border-bottom: 3px solid black; }
+.home-page i.fa {
+  background-color: white;
+  padding: 5px 15px;
+  margin: 0px 44%;
+  font-size: 2em;
+  position: relative;
+  bottom: 22px; }
+
+/****************************
+				ABOUT PAGE
+****************************/
+.about-page h1 {
+  font-family: 'Josefin Slab', serif;
+  text-align: center;
+  margin: 15px auto;
+  font-size: 2em; }
+.about-page p {
+  font-family: 'Jura', sans-serif;
+  line-height: 2;
+  font-size: 1.15em; }
+.about-page .description {
+  margin: 4em 0; }
+  .about-page .description .img-container {
+    width: 100%;
+    padding: 5%; }
+    .about-page .description .img-container img {
+      width: 100%;
+      border: 1px solid black; }
+  .about-page .description p {
+    padding: 0 5%; }
+  @media (min-width: 769px) {
+    .about-page .description .img-container, .about-page .description p {
+      width: 75%;
+      margin: auto;
+      padding: 0; } }
+  @media (min-width: 1024px) {
+    .about-page .description h1 {
+      text-align: right;
+      margin: 2%; }
+    .about-page .description .img-container, .about-page .description p {
+      width: 100%; }
+    .about-page .description .column.is-4-desktop,
+    .about-page .description .column.is-8-desktop {
+      display: flex;
+      /* centers content */ } }
+.about-page .modal h1 {
+  text-align: center;
+  margin: 0; }
+.about-page .modal .modal-content {
+  transition: all .75s ease; }
+.about-page .modal .modal-content embed {
+  width: 100%;
+  height: 500px; }
+@media (min-width: 1216px) {
+  .about-page .modal .modal-content {
+    width: 824px; } }
+.about-page .modal-enter,
+.about-page .modal-leave-active {
+  opacity: 0; }
+.about-page .modal-enter .modal-content,
+.about-page .modal-leave-active .modal-content {
+  -webkit-transform: translateY(-200px);
+  transform: translateY(-200px); }
+.about-page .modal-enter-active {
+  transition: -webkit-transform 1.25s ease;
+  transition: transform 1.25s ease;
+  transition: transform 1.25s ease, -webkit-transform 1.25s ease;
+  transition: opacity .75s ease; }
+.about-page .modal-leave-active {
+  transition: all .75s ease; }
+.about-page .skills {
+  margin: 10px auto; }
+  .about-page .skills .css-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1em;
+    margin-bottom: 25px; }
+  .about-page .skills .skill-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px;
+    margin: 10px 0px;
+    box-sizing: border-box; }
+    .about-page .skills .skill-item img {
+      width: 100%;
+      height: 10em; }
+  .about-page .skills .skill-item p {
+    font-size: 1.35em;
+    margin: 15px 0px;
+    text-align: center;
+    font-family: 'Josefin Slab', serif; }
+  @media (min-width: 769px) {
+    .about-page .skills .css-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr); } }
+  @media (min-width: 1024px) {
+    .about-page .skills {
+      margin: 50px auto; }
+      .about-page .skills h1 {
+        text-align: left;
+        margin: 2% 0; } }
+  @media (min-width: 1216px) {
+    .about-page .skills .css-grid {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: initial;
+      margin-bottom: 25px; } }

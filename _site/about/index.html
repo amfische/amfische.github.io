@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en-US">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Aaron Fischer</title>
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <link rel="stylesheet" href="/assets/css/weather-icons.min.css">
+  <link rel="stylesheet" href="/assets/css/weather-icons-wind.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/assets/styles-6c7609d1e33cd35bd9aee6692910c7cee094c1a0283663d52345f662322604d2.css">
+  <link rel="stylesheet" type="text/css" href="/assets/test-db90080930593cd0c3acbdba8940ef94a74e133e57a186b6ace1dcbcf398d174.css">
+
+</head>
+
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+      
+      <div class="navbar-brand">
+        <div class="navbar-item">
+          <a href="https://www.linkedin.com/in/amfische" target="_blank">
+            <i class="fa fa-2x fa-linkedin-square" aria-hidden="true"></i>
+          </a>
+          <a href="https://github.com/amfische" target="_blank">
+            <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div :class="[navbarBurger, isOpen ? isActive : '']" v-on:click="toggleNavbar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      
+      <div class="navbar-menu is-active" ref="navmenu">
+        <div class="navbar-end">
+          <div class="navbar-item" ref="home">
+            <a href="/">HOME</a>
+          </div>
+          <div class="navbar-item" ref="about">
+            <a href="/about">ABOUT</a>
+          </div>
+          <div class="navbar-item" ref="projects">
+            <a href="/projects">PROJECTS</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+  
+  <div class="main-content-block">
+    <div class="container about-page">
+
+  <div class="description">
+    <h1>A little about myself</h1>
+    <div class="columns is-multiline">
+      <div class="column is-12-tablet is-4-desktop is-3-fullhd">
+        <div class="img-container">
+          <img src="/assets/images/profile_3.jpg" alt="bust shot image of myself">  
+        </div>
+      </div>
+      <div class="column is-12-tablet is-8-desktop is-9-fullhd">
+        <p>I'm a self-taught junior web developer gaining experience working for a local public school district. At work the biggest project I work on is a custom PHP CMS that was built around 10 years ago. Though this is an older project it uses an MVC design pattern and it gives me experience navigating and troubleshooting legacy code. Newer projects we take on use modern PHP and JavaScript frameworks. In my free time I enjoy working on side projects, hanging out with friends, playing sports and eating pho noodles! Feel free to <a href="mailto:amfischer21@gmail.com">email</a> me or take a look at my <a href="#resume" @click="showResume">resume.</a></p>
+      </div>
+    </div>
+  </div> <!-- end description -->
+
+	<div class="skills">
+    <h1>Web technologies I use</h1>
+    <div class="css-grid"> 
+  		<div class="skill-item">
+        <div class="svg-container">
+          <img src="/assets/images/logos/laravel.svg" alt="laravel logo">
+        </div>
+        <p>Laravel</p>
+      </div>
+      <div class="skill-item">
+        <div class="svg-container">
+          <img src="/assets/images/logos/php.svg" alt="php logo">
+        </div>
+        <p>PHP</p>
+      </div>
+      <div class="skill-item">
+        <div class="svg-container">
+          <img src="/assets/images/logos/mysql.svg" alt="mysql logo">
+        </div>
+        <p>MySQL</p>
+      </div>
+      <div class="skill-item">
+        <div class="svg-container">
+          <img src="/assets/images/logos/javascript.svg" alt="JavaScript logo">
+        </div>
+        <p>JavaScript</p>
+      </div>
+      <div class="skill-item">
+        <div class="svg-container">
+          <img src="/assets/images/logos/vuejs.svg" alt="vue logo">
+        </div>
+        <p>Vue.js</p>
+      </div>
+    </div> <!-- end css-grid -->
+	</div> <!-- end skills -->
+
+<transition name="modal">
+  <div class="modal is-active" v-show="showModal">
+    <div class="modal-background" @click="close"></div>
+    <div class="modal-content">
+      <embed src="/assets/resume.pdf" type="application/pdf">
+    </div>
+    <button class="modal-close is-large" aria-label="close" @click="close"></button>
+  </div>
+</transition>
+</div> <!-- end about-page -->
+
+<script src="https://use.fontawesome.com/d3c9e0b791.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/about.js"></script>
+
+</body>
+</html>
+  
+  </div>

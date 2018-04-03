@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en-US">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Aaron Fischer</title>
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <link rel="stylesheet" href="/assets/css/weather-icons.min.css">
+  <link rel="stylesheet" href="/assets/css/weather-icons-wind.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/assets/styles-6c7609d1e33cd35bd9aee6692910c7cee094c1a0283663d52345f662322604d2.css">
+  <link rel="stylesheet" type="text/css" href="/assets/test-db90080930593cd0c3acbdba8940ef94a74e133e57a186b6ace1dcbcf398d174.css">
+
+</head>
+
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+      
+      <div class="navbar-brand">
+        <div class="navbar-item">
+          <a href="https://www.linkedin.com/in/amfische" target="_blank">
+            <i class="fa fa-2x fa-linkedin-square" aria-hidden="true"></i>
+          </a>
+          <a href="https://github.com/amfische" target="_blank">
+            <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div :class="[navbarBurger, isOpen ? isActive : '']" v-on:click="toggleNavbar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      
+      <div class="navbar-menu is-active" ref="navmenu">
+        <div class="navbar-end">
+          <div class="navbar-item" ref="home">
+            <a href="/">HOME</a>
+          </div>
+          <div class="navbar-item" ref="about">
+            <a href="/about">ABOUT</a>
+          </div>
+          <div class="navbar-item" ref="projects">
+            <a href="/projects">PROJECTS</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+  
+  <div class="main-content-block">
+    <div class="container tictactoe">
+	<div class="columns is-multiline">
+
+		<div class="column is-12-mobile is-offset-2-tablet is-8-tablet is-offset-1-desktop is-5-desktop">
+			<div class="display">
+				<div class="board-container">
+					<div class="board">
+						<div class="space" v-for="square in board.spaces" v-text="square.value" @click="occupySquare(square)"></div>
+					</div>
+				</div>
+				<div class="controls">
+					<h3>Choose Symbol</h3>
+					<label class="radio-btn">X
+					  <input type="radio" name="symbol" value="X" v-model="symbol">
+					  <span class="checkmark"></span>
+					</label>
+					<label class="radio-btn">O
+					  <input type="radio" name="symbol" value="O" v-model="symbol">
+					  <span class="checkmark"></span>
+					</label>
+					<button class="start" @click="startGame" v-text="startBtn"></button>
+				</div> <!-- end controls -->
+			</div> <!-- end display -->
+		</div>
+
+		<div class="column is-12-mobile is-offset-2-tablet is-8-tablet is-offset-1-desktop is-5-desktop">
+			<div class="description">
+				<h1>Tic Tac Toe</h1>
+				<ul class="fa-ul">
+					<li><i class="fa fa-li fa-angle-right"></i>Built with vanilla JavaScript and OOP principles</li>
+					<li><i class="fa fa-li fa-angle-right"></i>The player with the X symbol will always go first</li>
+					<li><i class="fa fa-li fa-angle-right"></i>Check out the git repository <a href="https://github.com/amfische/vue-tictactoe" target="_blank">here</a></li>
+				</ul>
+				<h1>Minimax Algorithm</h1>
+				<ul class="fa-ul">
+					<li><i class="fa fa-li fa-angle-right"></i>The computer's A.I. is designed to be unbeatable; at best a player will tie.</li>
+					<li><i class="fa fa-li fa-angle-right"></i>The A.I. uses the minimax algorithm and is a common tool in zero-sum games like chess and checkers.</li>
+					<li><i class="fa fa-li fa-angle-right"></i>The algorithm is recursive and essentially works by playing out all possible scenarios given the current state of the board.</li>
+					<li><i class="fa fa-li fa-angle-right"></i>Surprisingly, there are around 32,000 possible game states in Tic Tac Toe. Chess has around 10<sup>50</sup> possible states.</li>
+					<li><i class="fa fa-li fa-angle-right"></i>Click <a href="http://neverstopbuilding.com/minimax" target="_blank">here</a> to learn more.</li>
+				</ul>
+			</div> <!-- end description -->
+		</div>
+
+	</div> <!-- end columns -->
+</div> <!-- end .tictactoe -->
+
+
+<script src="https://use.fontawesome.com/d3c9e0b791.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/tictactoe/board.js"></script>
+<script src="/assets/js/tictactoe/boardspace.js"></script>
+<script src="/assets/js/tictactoe/players.js"></script>
+<script src="/assets/js/tictactoe/app.js"></script>
+
+
+</body>
+</html>  
+  </div>
