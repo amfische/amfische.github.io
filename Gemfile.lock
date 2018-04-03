@@ -98,7 +98,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  jekyll (= 3.7.3)
+  jekyll
   jekyll-assets
   jekyll-feed
   tzinfo-data

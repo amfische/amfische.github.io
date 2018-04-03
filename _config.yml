@@ -19,13 +19,16 @@ defaults:
     layout: navbar
     permalink: "/projects/:title"
 
-assets:
-  sources:
-    - assets/_sass
-  autoprefixer:
-    browsers:
-      - "last 2 versions"
-      - "IE > 9"
+sass:
+  sass_dir: /assets/_sass
+
+# assets:
+#   sources:
+#     - assets/_sass
+#   autoprefixer:
+#     browsers:
+#       - "last 2 versions"
+#       - "IE > 9"
 
 # Build settings
 markdown: kramdown

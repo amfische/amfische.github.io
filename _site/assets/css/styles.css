@@ -190,6 +190,7 @@
       right: 0;
       bottom: 0;
       background-color: #ccc;
+      -webkit-transition: .4s;
       transition: .4s; }
     .simon .board .slider:before {
       position: absolute;
@@ -199,6 +200,7 @@
       left: 3px;
       bottom: 3px;
       background-color: white;
+      -webkit-transition: .4s;
       transition: .4s; }
     .simon .board .slider.round {
       border-radius: 34px; }
@@ -210,6 +212,7 @@
       box-shadow: 0 0 1px #2196F3; }
     .simon .board .switch input:checked + .slider:before {
       -webkit-transform: translateX(16px);
+      -ms-transform: translateX(16px);
       transform: translateX(16px); }
   .simon .description {
     margin: auto; }
@@ -619,9 +622,7 @@ nav.navbar {
   -webkit-transform: translateY(-200px);
   transform: translateY(-200px); }
 .about-page .modal-enter-active {
-  transition: -webkit-transform 1.25s ease;
   transition: transform 1.25s ease;
-  transition: transform 1.25s ease, -webkit-transform 1.25s ease;
   transition: opacity .75s ease; }
 .about-page .modal-leave-active {
   transition: all .75s ease; }
